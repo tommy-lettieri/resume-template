@@ -1,0 +1,36 @@
+{
+  "name": "@z87/resume-template",
+  "version": "0.0.0",
+  "description": "This will be a component library for building a resume.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 3000",
+    "build-storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tommy-lettieri/resume-template.git"
+  },
+  "author": "Thomas Lettieri",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tommy-lettieri/resume-template/issues"
+  },
+  "homepage": "https://github.com/tommy-lettieri/resume-template#readme",
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@storybook/addon-actions": "^6.3.2",
+    "@storybook/addon-essentials": "^6.3.2",
+    "@storybook/addon-links": "^6.3.2",
+    "@storybook/react": "^6.3.2",
+    "babel-loader": "^8.2.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "dependencies": {}
+}
