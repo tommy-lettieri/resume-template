@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import _ from 'lodash';
+import { OptionalLinkWrapper } from './OptionalLinkWrapper';
 
 export interface School {
     startDate?: Date;
@@ -10,6 +11,10 @@ export interface School {
     major?: string;
     awards?: string;
     logoURL?: string;
+    website?: string;
+    namedBlurbs?: {
+        [key: string]: string;
+    }
 }
 
 interface SchoolCardProps {
@@ -17,6 +22,7 @@ interface SchoolCardProps {
     dateFormat?: string;
     school: School;
     gpaPrecision?: number;
+    logoWidth?: number;
 }
 
 export const SchoolCard = ({
@@ -24,6 +30,7 @@ export const SchoolCard = ({
     school,
     style,
     gpaPrecision = 2,
+    logoWidth,
 }: SchoolCardProps) => {
     let dateString = '';
     if (school.startDate && school.endDate) {
@@ -49,25 +56,26 @@ export const SchoolCard = ({
     return (
     <div style={{
         padding: '20px',
-        maxHeight: '100px',
         ...style,
     }}>
         <div style= {{
             display: 'flex',
             flexDirection: 'row',
-            maxHeight: '100px',
         }}>
-            {school.logoURL && <div style={{display:'flex', alignItems: 'center', marginRight: '0.5em'}}><img style={{maxHeight: '100%', maxWidth: '250px'}} src={school.logoURL} /> </div>}
+            {school.logoURL && <OptionalLinkWrapper href={school.website}><div style={{height: '100%', display:'flex', alignItems: 'center', marginRight: '1em'}}><img style={{maxHeight: '100px', maxWidth: '250px', width: logoWidth}} src={school.logoURL} /> </div></OptionalLinkWrapper>}
             <div>
                 <div style= {{
                     display: 'flex',
                     flexDirection: 'row',
                 }}>
-                    <h2 style={{margin: 0}}>{school.name}</h2>
+                    <OptionalLinkWrapper href={school.website}><h2 style={{margin: 0}}>{school.name}</h2></OptionalLinkWrapper>
                     {dateString && <div style={{marginTop: 'auto', marginLeft: '0.5em'}}>{dateString}</div>}
                 </div>
                 {school.major && <div>{school.major}</div>}
                 {awardsLine && <div>{awardsLine}</div>}
+                {school.namedBlurbs && <ul>{Object.entries(school.namedBlurbs).map(([key, value]) => <li>
+                    <strong>{key}:</strong> {value}
+                </li>)}</ul>}
             </div>
         </div>
     </div>)

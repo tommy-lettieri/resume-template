@@ -7,6 +7,7 @@ interface EducationProps {
   dateFormat?: string;
   schools: School[];
   gpaPrecision?: number;
+  logoWidth?: number;
 }
 
 /**
@@ -17,6 +18,7 @@ export const EducationPage = ({
   schools,
   style = { height: '100vh' },
   gpaPrecision = 2,
+  logoWidth,
 }: EducationProps) => {
   if (_.isEmpty(schools)) {
     return <div
@@ -36,7 +38,7 @@ export const EducationPage = ({
         // display: 'flex',
       }}
     >
-      {schools.map((school) => <SchoolCard gpaPrecision={gpaPrecision} key={school.name} dateFormat={dateFormat} school={school} />)}
+      {schools.map((school) => <SchoolCard logoWidth={logoWidth} gpaPrecision={gpaPrecision} key={school.name} dateFormat={dateFormat} school={school} />)}
     </div>
   );
 };
