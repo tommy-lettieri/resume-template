@@ -11,7 +11,6 @@ module.exports = expressMiddleware;
 if (require.main === module) {
     console.log('Starting server since this script is being run directly')
     const app = express();
-    // app.use(expressMiddleware);
     expressMiddleware(app);
     const port = 3001;
     app.listen(port, () => {

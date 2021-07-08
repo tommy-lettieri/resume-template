@@ -4,8 +4,8 @@ import _ from 'lodash';
 import { OptionalLinkWrapper } from './OptionalLinkWrapper';
 
 export interface Employment {
-    startDate?: Date;
-    endDate?: Date | null;
+    startDate?: string | Date;
+    endDate?: string | Date | null;
     logoURL?: string;
     website?: string;
     name: string;
