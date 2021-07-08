@@ -27,11 +27,11 @@
         "preserveConstEnums": true,
 
         "declaration": true,
+        "declarationMap": true,
         "sourceMap": true,
 
         "outDir": "dist",
-        "declarationDir": ".",
-        "emitDeclarationOnly": true
+        "noEmit": true
     },
     "include": [
         "src"
