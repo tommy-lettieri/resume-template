@@ -1,0 +1,27 @@
+{
+    "logoWidth": 100,
+    "employments": [
+        {
+            "name": "Job 2",
+            "startDate": "7/1/2020",
+            "endDate": "7/1/2021",
+            "namedBlurbs": {
+                "Responsibilities": "Managed projects",
+                "Languages": "Typescript, Python",
+                "Frameworks": "Express, React, Sequelize, Prisma, Fastify, Waitress",
+                "Databases": "PostgreSQL"
+            }
+        },
+        {
+            "name": "Job 1",
+            "startDate": "5/1/2015",
+            "endDate": "7/1/2020",
+            "namedBlurbs": {
+                "Responsibilities": "Engineered applications",
+                "Languages": "Typescript, Python",
+                "Frameworks": "Express, React, Sequelize, Prisma, Fastify, Waitress",
+                "Databases": "PostgreSQL"
+            }
+        }
+    ]
+}
