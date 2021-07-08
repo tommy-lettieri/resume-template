@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "dependencies": {
+    "@z87/resume-template-cli": "file:../resume-template-cli",
     "axios": "^0.21.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.1"

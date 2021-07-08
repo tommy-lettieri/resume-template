@@ -2,7 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import { SchoolCard, School } from './SchoolCard';
 
-interface EducationProps {
+export interface EducationPageProps {
   style?: React.CSSProperties;
   dateFormat?: string;
   schools: School[];
@@ -16,10 +16,10 @@ interface EducationProps {
 export const EducationPage = ({
   dateFormat = 'MMMM yyyy',
   schools,
-  style = { height: '100vh' },
+  style,
   gpaPrecision = 2,
   logoWidth,
-}: EducationProps) => {
+}: EducationPageProps) => {
   if (_.isEmpty(schools)) {
     return <div
       className="zrt-education-root"
@@ -35,9 +35,10 @@ export const EducationPage = ({
       className="zrt-education-root"
       style={{
         ...style,
-        // display: 'flex',
+        marginBottom:'20px'
       }}
     >
+      <h1>Education</h1>
       {schools.map((school) => <SchoolCard logoWidth={logoWidth} gpaPrecision={gpaPrecision} key={school.name} dateFormat={dateFormat} school={school} />)}
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface HomePageProps {
+export interface HomePageProps {
   /**
    * The name of the person this resume website belongs to
    */

@@ -1,9 +1,9 @@
 import React, { createContext, useState, useContext, useEffect } from 'react'
-import { EmploymentPage, EmploymentPageProps } from '../EmploymentPage';
-import { getEmploymentData } from '../../utilities/ResumeTemplatesAxios';
+import { EducationPage, EducationPageProps } from '../EducationPage';
+import { getEducationData } from '../../utilities/ResumeTemplatesAxios';
 import { UseStateType } from '../../utilities/ReactTypes';
 
-export const EmploymentContext = createContext<UseStateType<EmploymentPageProps | null | undefined> | null>(null);
+export const EducationContext = createContext<UseStateType<EducationPageProps | null | undefined> | null>(null);
 
 // export const BlankEmploymentProvider: React.FC = ({
 //     children
@@ -12,14 +12,14 @@ export const EmploymentContext = createContext<UseStateType<EmploymentPageProps 
 //   return <EmploymentContext.Provider value={value}>{children}</EmploymentContext.Provider>
 // }
 
-export const EmploymentAPIProvider: React.FC = ({
+export const EducationAPIProvider: React.FC = ({
     children
 }) => {
-  const value = useState<EmploymentPageProps | null | undefined>(undefined);
+  const value = useState<EducationPageProps | null | undefined>(undefined);
   useEffect(() => {
       (async () => {
         try {
-            const result = await getEmploymentData();
+            const result = await getEducationData();
             value[1](result.data);
         } catch (e) {
             console.error('getEmploymentData', e);
@@ -27,14 +27,14 @@ export const EmploymentAPIProvider: React.FC = ({
         }
       })();
   }, []);
-  return <EmploymentContext.Provider value={value}>{children}</EmploymentContext.Provider>
+  return <EducationContext.Provider value={value}>{children}</EducationContext.Provider>
 }
 
-export const useEmployment = () => useContext(EmploymentContext);
+export const useEmployment = () => useContext(EducationContext);
 
 
-export const EmploymentPageContextWrapper = () => {
-    return <EmploymentContext.Consumer>
+export const EducationPageContextWrapper = () => {
+    return <EducationContext.Consumer>
         {(stateTuple) => {
             if (stateTuple === null) {
                 return <p>Not Initialized</p>;
@@ -43,15 +43,15 @@ export const EmploymentPageContextWrapper = () => {
             } else if (stateTuple[0] === undefined) {
                 return <p>THIS IS UNDEFINED</p>
             }
-            return <EmploymentPage 
+            return <EducationPage 
                 {...stateTuple[0]}
             />;
         }}
-    </EmploymentContext.Consumer>
+    </EducationContext.Consumer>
 };
 
-export const EmploymentAPIWrapper = () => {
-    return <EmploymentAPIProvider>
-        <EmploymentPageContextWrapper />
-    </EmploymentAPIProvider>;
+export const EducationAPIWrapper = () => {
+    return <EducationAPIProvider>
+        <EducationPageContextWrapper />
+    </EducationAPIProvider>;
 };

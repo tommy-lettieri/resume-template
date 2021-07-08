@@ -54,7 +54,7 @@ export const EmploymentCard = ({
                     <OptionalLinkWrapper href={employment.website}><h2 style={{margin: 0}}>{employment.name}</h2></OptionalLinkWrapper>
                     {dateString && <div style={{marginTop: 'auto', marginLeft: '0.5em'}}>{dateString}</div>}
                 </div>
-                {employment.namedBlurbs && <ul>{Object.entries(employment.namedBlurbs).map(([key, value]) => <li>
+                {employment.namedBlurbs && <ul style={{listStyleType: 'none', margin: 0, padding: 0}}>{Object.entries(employment.namedBlurbs).map(([key, value]) => <li>
                     <strong>{key}:</strong> {value}
                 </li>)}</ul>}
             </div>

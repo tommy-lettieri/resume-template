@@ -4,8 +4,8 @@ import _ from 'lodash';
 import { OptionalLinkWrapper } from './OptionalLinkWrapper';
 
 export interface School {
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string | Date;
+    endDate?: string | Date | null;
     gpa?: number;
     name: string;
     major?: string;
@@ -73,7 +73,7 @@ export const SchoolCard = ({
                 </div>
                 {school.major && <div>{school.major}</div>}
                 {awardsLine && <div>{awardsLine}</div>}
-                {school.namedBlurbs && <ul>{Object.entries(school.namedBlurbs).map(([key, value]) => <li>
+                {school.namedBlurbs && <ul style={{listStyleType: 'none', margin: 0, padding: 0}}>{Object.entries(school.namedBlurbs).map(([key, value]) => <li>
                     <strong>{key}:</strong> {value}
                 </li>)}</ul>}
             </div>

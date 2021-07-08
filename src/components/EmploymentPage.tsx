@@ -2,7 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import { EmploymentCard, Employment } from './EmploymentCard';
 
-interface EmploymentPageProps {
+export interface EmploymentPageProps {
   style?: React.CSSProperties;
   dateFormat?: string;
   employments: Employment[];
@@ -15,7 +15,7 @@ interface EmploymentPageProps {
 export const EmploymentPage = ({
   dateFormat = 'MMMM yyyy',
   employments,
-  style = { height: '100vh' },
+  style,
   logoWidth,
 }: EmploymentPageProps) => {
   if (_.isEmpty(employments)) {
@@ -32,8 +32,10 @@ export const EmploymentPage = ({
       className="zrt-employment-root"
       style={{
         ...style,
+        marginBottom:'20px'
       }}
     >
+      <h1>Employment</h1>
       {employments.map((employment) => <EmploymentCard key={employment.name} logoWidth={logoWidth} dateFormat={dateFormat} employment={employment} />)}
     </div>
   );
