@@ -18,11 +18,25 @@
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "isolatedModules": true,
-        "noEmit": true,
         "jsx": "react",
-        "noFallthroughCasesInSwitch": true
+        "noFallthroughCasesInSwitch": true,
+
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "noImplicitAny": true,
+        "preserveConstEnums": true,
+
+        "declaration": true,
+        "sourceMap": true,
+
+        "outDir": "dist",
+        "declarationDir": ".",
+        "emitDeclarationOnly": true
     },
     "include": [
         "src"
+    ],
+    "exclude": [
+        "src/stories/**"
     ]
 }

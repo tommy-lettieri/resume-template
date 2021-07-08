@@ -2,7 +2,8 @@
   "name": "@z87/resume-template",
   "version": "0.0.0",
   "description": "A react component library with resume related components.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "dependencies": {
     "lodash": "^4.17.21",
     "moment": "^2.29.1"
@@ -13,6 +14,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
+    "@babel/preset-react": "^7.14.5",
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@rollup/plugin-typescript": "^8.2.1",
     "@storybook/addon-actions": "^6.3.2",
     "@storybook/addon-essentials": "^6.3.2",
     "@storybook/addon-links": "^6.3.2",
@@ -22,12 +27,17 @@
     "babel-loader": "^8.2.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "rollup": "^2.52.8",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-terser": "^7.0.2",
     "typescript": "^4.3.5"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 3000",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook -p 3005",
+    "build-storybook": "build-storybook",
+    "build": "rollup -c"
   },
   "repository": {
     "type": "git",
