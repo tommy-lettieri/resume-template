@@ -110,3 +110,4 @@ storybook-static
 src
 rollup.config.js
 tsconfig.json
+/.github
