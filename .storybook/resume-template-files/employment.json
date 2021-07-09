@@ -1,27 +1,34 @@
 {
     "logoWidth": 100,
-    "employments": [
-        {
-            "name": "Job 2",
-            "startDate": "7/1/2020",
-            "endDate": "7/1/2021",
-            "bullets": [
-                "**Responsibilities:** Managed projects",
-                "**Languages:** Typescript, Python",
-                "**Frameworks:** Express, React, Sequelize, Prisma, Fastify, Waitress",
-                "**Databases:** PostgreSQL"
-            ]
-        },
-        {
-            "name": "Job 1",
-            "startDate": "5/1/2015",
-            "endDate": "7/1/2020",
-            "bullets": [
-                "**Responsibilities:** Engineered applications",
-                "**Languages:** Typescript, Python",
-                "**Frameworks:** Express, React, Sequelize, Prisma, Fastify, Waitress",
-                "**Databases:** PostgreSQL"
-            ]
-        }
-    ]
+    "employments": [{
+        "name": "Default Name",
+        "bullets": [
+          "Since this is markdown you can have a bunch of control here. **Bold** *Italics*",
+          "**Extra Curriculars:** For schools you might want to include something like clubs you were in",
+          "**Responsibilities:** If this is a job what were you responsibile for?",
+          "**Languages** For programmers what languages did you work with?",
+          "**Frameworks:** For programmers what specify any frameworks you used like ExpressJS",
+          "**Databases** For programmers what list out different databases you have worked with (i.e. PostgreSQL)",
+          "\n* If you really want to you could make the bullets just a single mark down string...\n* These last two bullets are actually from a single string\n#### And you can do things like headers\n| or | tables |\n| --- | --- |\n| d1 | d2 |\n| d3 | d4 |\n          "
+        ],
+        "startDate": "2021-07-09T15:26:26.661Z",
+        "endDate": null,
+        "website": "http://localhost:3005/iframe.html?id=components-employment-card--all-data&viewMode=story",
+        "logoURL": "https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v286batch2-aew-company-logo-17_4.jpg?w=1200&h=1200&dpr=1&fit=clip&crop=default&fm=jpg&q=75&vib=3&con=3&usm=15&cs=srgb&bg=F4F4F3&ixlib=js-2.2.1&s=e93e1706e26a78ff1238b3ca63b10bdf"
+      }, {
+        "name": "Default Name",
+        "bullets": [
+          "Since this is markdown you can have a bunch of control here. **Bold** *Italics*",
+          "**Extra Curriculars:** For schools you might want to include something like clubs you were in",
+          "**Responsibilities:** If this is a job what were you responsibile for?",
+          "**Languages** For programmers what languages did you work with?",
+          "**Frameworks:** For programmers what specify any frameworks you used like ExpressJS",
+          "**Databases** For programmers what list out different databases you have worked with (i.e. PostgreSQL)",
+          "\n* If you really want to you could make the bullets just a single mark down string...\n* These last two bullets are actually from a single string\n#### And you can do things like headers\n| or | tables |\n| --- | --- |\n| d1 | d2 |\n| d3 | d4 |\n          "
+        ],
+        "startDate": "2021-07-09T15:26:26.661Z",
+        "endDate": null,
+        "website": "http://localhost:3005/iframe.html?id=components-employment-card--all-data&viewMode=story",
+        "logoURL": "https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v286batch2-aew-company-logo-17_4.jpg?w=1200&h=1200&dpr=1&fit=clip&crop=default&fm=jpg&q=75&vib=3&con=3&usm=15&cs=srgb&bg=F4F4F3&ixlib=js-2.2.1&s=e93e1706e26a78ff1238b3ca63b10bdf"
+      }]
 }

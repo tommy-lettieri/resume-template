@@ -12,6 +12,7 @@ export const Website = ({
 }: WebsiteProps) => {
     return <div style = {{
         backgroundColor: '#EEEEEE',
+        paddingBottom: '20px',
         ...style
     }}>
         <HomeAPIWrapper />
