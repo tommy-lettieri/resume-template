@@ -1,0 +1,6 @@
+import { createContext } from 'react';
+import { GenericPageProps } from '../components/GenericPage';
+import { UseStateType } from '../utilities/ReactTypes';
+
+type DataContextType = Omit<GenericPageProps, 'pageName'>;
+export const ProjectsContext = createContext<UseStateType<DataContextType | null | undefined> | null>(null);
