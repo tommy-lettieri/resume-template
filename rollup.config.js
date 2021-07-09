@@ -5,6 +5,7 @@ import typescript from '@rollup/plugin-typescript';
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 import packageJSON from './package.json';
+import json from '@rollup/plugin-json';
 
 export default [
     {
@@ -24,6 +25,9 @@ export default [
             // },
         ],
         plugins: [
+            resolve({ preferBuiltins: true, browser: true }),
+            // fixes axios importing package.json
+            json(),
             // This solves esinterop issues (as of right now lodash and moment were giving issues with default import)
             commonjs(),
             typescript({
@@ -37,10 +41,9 @@ export default [
                 exclude: 'node_modules/**',
                 presets: ['@babel/preset-react']
             }),
-            external(),
-            resolve(),
             // minify output
             terser(),
+            external(),
         ]
     }
 ]

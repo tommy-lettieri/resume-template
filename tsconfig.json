@@ -31,7 +31,7 @@
         "sourceMap": true,
 
         "outDir": "dist",
-        "noEmit": true
+
     },
     "include": [
         "src"
