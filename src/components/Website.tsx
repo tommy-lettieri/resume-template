@@ -3,7 +3,7 @@ import { EducationAPIWrapper } from './context-wrappers/EducationContext';
 import { EmploymentAPIWrapper } from './context-wrappers/EmploymentPageContextWrapper';
 import { HomeAPIWrapper } from './context-wrappers/HomePageContextWrapper';
 import { GenericAPIWrapper } from './context-wrappers/GenericPageContextWrapper';
-import { ProjectsContext } from '../contexts';
+import { ProjectsContext, SkillsContext, AchievementsContext } from '../contexts';
 
 export interface WebsiteProps {
     style?: React.CSSProperties;
@@ -19,8 +19,10 @@ export const Website = ({
     }}>
         <HomeAPIWrapper />
         <div style={{marginLeft: '25%', marginRight: '25%'}}>
+            <GenericAPIWrapper DataContext={SkillsContext} name='skills' />
             <EmploymentAPIWrapper />
             <EducationAPIWrapper />
+            <GenericAPIWrapper DataContext={AchievementsContext} name='achievements' />
             <GenericAPIWrapper DataContext={ProjectsContext} name='projects' />
         </div>
     </div>
