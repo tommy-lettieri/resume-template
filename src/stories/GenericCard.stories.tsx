@@ -1,15 +1,15 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { EmploymentCard } from '../components/EmploymentCard';
+import { GenericCard } from '../components/GenericCard';
 
 export default {
-  title: 'Components/Employment Card',
-  component: EmploymentCard,
+  title: 'Components/Generic Card',
+  component: GenericCard,
   argTypes: {
-    employment: {
+    data: {
       defaultValue: {
-        name: 'Default Employment Name',
+        name: 'Default Generic Name',
         namedBlurbs: {
           'Responsibilities': 'Give an overview of what you did there.',
           'Languages': 'For programmers what languages did you work with.',
@@ -24,22 +24,23 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
-} as ComponentMeta<typeof EmploymentCard>;
+} as ComponentMeta<typeof GenericCard>;
 
-const Template: ComponentStory<typeof EmploymentCard> = (args) => <EmploymentCard {...args} />;
+const Template: ComponentStory<typeof GenericCard> = (args) => <GenericCard {...args} />;
 
 export const DefaultStory = Template.bind({});
 DefaultStory.args = {};
 
 export const AllData = Template.bind({});
 AllData.args = {
-  employment: {
-    name: 'Default Employment Name',
+  data: {
+    name: 'Default Name',
     namedBlurbs: {
-      'Responsibilities': 'Give an overview of what you did there.',
-      'Languages': 'For programmers what languages did you work with.',
-      'Frameworks': 'Specify any frameworks you used like ExpressJS',
-      'Databases': 'List out different databases you have worked with (i.e. PostgreSQL)',
+      'Extra Curriculars': 'For schools you might want to include something like clubs you were in',
+      'Responsibilities': 'If this is a job what were you responsibile for?',
+      'Languages': 'For programmers what languages did you work with?',
+      'Frameworks': 'For programmers what specify any frameworks you used like ExpressJS',
+      'Databases': 'For programmers what list out different databases you have worked with (i.e. PostgreSQL)',
     },
     startDate: new Date(),
     endDate: null,
@@ -48,12 +49,12 @@ AllData.args = {
   },
   logoWidth: 100,
   dateFormat: 'MMMM yyyy',
-  style: undefined
+  style: { backgroundColor: '#EEEEEE' }
 };
 
 export const StartDate = Template.bind({});
 StartDate.args = {
-  employment: {
+  data: {
     name: 'Set Name',
     namedBlurbs: {},
     startDate: new Date()
@@ -62,7 +63,7 @@ StartDate.args = {
 
 export const EndDate = Template.bind({});
 EndDate.args = {
-  employment: {
+  data: {
     name: 'Set Name',
     namedBlurbs: {},
     endDate: new Date()
@@ -71,7 +72,7 @@ EndDate.args = {
 
 export const ToPresent = Template.bind({});
 ToPresent.args = {
-  employment: {
+  data: {
     name: 'Set Name',
     namedBlurbs: {},
     startDate: new Date(),

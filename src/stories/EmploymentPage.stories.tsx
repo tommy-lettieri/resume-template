@@ -27,5 +27,20 @@ export default {
 
 const Template: ComponentStory<typeof EmploymentPage> = (args) => <EmploymentPage {...args} />;
 
+export const TomTom = Template.bind({});
+TomTom.args = {
+  employments: [{
+    startDate: new Date(),
+    endDate: null,
+    name: 'Employment 2',
+    namedBlurbs: {'c': 'd'}
+  }, {
+    startDate: new Date(),
+    endDate: new Date(),
+    name: 'Employment 1',
+  }]
+};
+
+
 export const DefaultStory = Template.bind({});
 DefaultStory.args = {};
