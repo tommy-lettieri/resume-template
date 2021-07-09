@@ -2,6 +2,9 @@ import React from 'react';
 import moment from 'moment';
 import _ from 'lodash';
 import { OptionalLinkWrapper } from './OptionalLinkWrapper';
+import ReactMarkdown from 'react-markdown';
+import gfm from 'remark-gfm';
+
 
 export interface GenericCardData {
     startDate?: string | Date;
@@ -9,9 +12,7 @@ export interface GenericCardData {
     logoURL?: string;
     website?: string;
     name: string;
-    namedBlurbs?: {
-        [key: string]: string;
-    }
+    bullets?: string[];
 }
 
 interface GenericCardProps {
@@ -39,13 +40,15 @@ export const GenericCard = ({
     return (
     <div style={{
         padding: '20px',
+        marginBottom: '20px',
+        backgroundColor: '#FFFFFF',
         ...style,
     }}>
         <div style= {{
             display: 'flex',
             flexDirection: 'row',
         }}>
-            {data.logoURL && <OptionalLinkWrapper href={data.website}><div style={{height: '100%', display:'flex', alignItems: 'center', marginRight: '1em'}}><img style={{maxHeight: '100px', maxWidth: '250px', width: logoWidth }} src={data.logoURL} /> </div></OptionalLinkWrapper>}
+            {data.logoURL && <OptionalLinkWrapper href={data.website}><div style={{height: '100%', display:'flex', alignItems: 'baseline', marginRight: '1em'}}><img style={{maxHeight: '100px', maxWidth: '250px', width: logoWidth }} src={data.logoURL} /> </div></OptionalLinkWrapper>}
             <div>
                 <div style= {{
                     display: 'flex',
@@ -54,9 +57,7 @@ export const GenericCard = ({
                     <OptionalLinkWrapper href={data.website}><h2 style={{margin: 0}}>{data.name}</h2></OptionalLinkWrapper>
                     {dateString && <div style={{marginTop: 'auto', marginLeft: '0.5em'}}>{dateString}</div>}
                 </div>
-                {data.namedBlurbs && <ul style={{listStyleType: 'none', margin: 0, padding: 0}}>{Object.entries(data.namedBlurbs).map(([key, value]) => <li>
-                    <strong>{key}:</strong> {value}
-                </li>)}</ul>}
+                {data.bullets && <ul style={{listStyleType: 'none', margin: 0, padding: 0}}>{data.bullets.map(bullet => <ReactMarkdown remarkPlugins={[gfm]}>{bullet}</ReactMarkdown>)}</ul>}
             </div>
         </div>
     </div>)

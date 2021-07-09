@@ -8,7 +8,9 @@
     "@z87/resume-template-cli": "file:../resume-template-cli",
     "axios": "^0.21.1",
     "lodash": "^4.17.21",
-    "moment": "^2.29.1"
+    "moment": "^2.29.1",
+    "react-markdown": "^6.0.2",
+    "remark-gfm": "^1.0.0"
   },
   "peerDependencies": {
     "react": "^17.0.2",

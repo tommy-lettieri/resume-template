@@ -12,7 +12,7 @@ export default {
         startDate: new Date(),
         endDate: null,
         name: 'Employment 2',
-        namedBlurbs: {'c': 'd'}
+        namedBlurbs: ['c', 'd']
       }, {
         startDate: new Date(),
         endDate: new Date(),

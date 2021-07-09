@@ -1,7 +1,6 @@
 import React from 'react';
-import moment from 'moment';
 import _ from 'lodash';
-import { OptionalLinkWrapper } from './OptionalLinkWrapper';
+import { GenericCard } from './GenericCard';
 
 export interface School {
     startDate?: string | Date;
@@ -12,9 +11,7 @@ export interface School {
     awards?: string;
     logoURL?: string;
     website?: string;
-    namedBlurbs?: {
-        [key: string]: string;
-    }
+    bullets?: string[];
 }
 
 interface SchoolCardProps {
@@ -26,21 +23,10 @@ interface SchoolCardProps {
 }
 
 export const SchoolCard = ({
-    dateFormat = 'MMMM yyyy',
     school,
-    style,
     gpaPrecision = 2,
-    logoWidth,
+    ...props
 }: SchoolCardProps) => {
-    let dateString = '';
-    if (school.startDate && school.endDate) {
-      dateString = `${moment(school.startDate).format(dateFormat)} - ${moment(school.endDate).format(dateFormat)}`
-    } else if (!school.startDate && !school.endDate) {
-      dateString = '';
-    } else {
-      dateString = moment(school.startDate || school.endDate).format(dateFormat);
-    }
-
     let awardsLine = '';
     if (school.awards) {
         awardsLine += school.awards;
@@ -53,30 +39,14 @@ export const SchoolCard = ({
     }
     awardsLine = _.upperFirst(awardsLine);
 
+    school.bullets = school.bullets ?? [];
+    awardsLine && school.bullets.unshift(awardsLine);
+    school.major && school.bullets.unshift(school.major);
+
     return (
-    <div style={{
-        padding: '20px',
-        ...style,
-    }}>
-        <div style= {{
-            display: 'flex',
-            flexDirection: 'row',
-        }}>
-            {school.logoURL && <OptionalLinkWrapper href={school.website}><div style={{height: '100%', display:'flex', alignItems: 'center', marginRight: '1em'}}><img style={{maxHeight: '100px', maxWidth: '250px', width: logoWidth}} src={school.logoURL} /> </div></OptionalLinkWrapper>}
-            <div>
-                <div style= {{
-                    display: 'flex',
-                    flexDirection: 'row',
-                }}>
-                    <OptionalLinkWrapper href={school.website}><h2 style={{margin: 0}}>{school.name}</h2></OptionalLinkWrapper>
-                    {dateString && <div style={{marginTop: 'auto', marginLeft: '0.5em'}}>{dateString}</div>}
-                </div>
-                {school.major && <div>{school.major}</div>}
-                {awardsLine && <div>{awardsLine}</div>}
-                {school.namedBlurbs && <ul style={{listStyleType: 'none', margin: 0, padding: 0}}>{Object.entries(school.namedBlurbs).map(([key, value]) => <li>
-                    <strong>{key}:</strong> {value}
-                </li>)}</ul>}
-            </div>
-        </div>
-    </div>)
+        <GenericCard
+            data={school}
+            {...props}
+        />
+    )
 }
