@@ -1,7 +1,7 @@
 {
     "logoWidth": 100,
     "schools": [{
-      "name": "Default Name",
+      "name": "University",
       "bullets": [
         "Since this is markdown you can have a bunch of control here. **Bold** *Italics*",
         "**Extra Curriculars:** For schools you might want to include something like clubs you were in",
@@ -19,7 +19,7 @@
       "awards": "Dean's Scholarship and Dean's List",
       "gpa": 4
     }, {
-      "name": "Default Name",
+      "name": "College",
       "bullets": [
         "Since this is markdown you can have a bunch of control here. **Bold** *Italics*",
         "**Extra Curriculars:** For schools you might want to include something like clubs you were in",

@@ -6,20 +6,7 @@ import { Website } from '../components/Website'
 export default {
   title: 'API Pages/Website',
   component: Website,
-  argTypes: {
-    employments: {
-      defaultValue: [{
-        startDate: new Date(),
-        endDate: null,
-        name: 'Employment 2',
-        bullets: ['c', 'd']
-      }, {
-        startDate: new Date(),
-        endDate: new Date(),
-        name: 'Employment 1',
-      }]
-    }
-  },
+  argTypes: {},
   parameters: {
     layout: 'fullscreen',
   },

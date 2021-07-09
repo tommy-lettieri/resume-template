@@ -10,3 +10,6 @@ export const getEducationData = (): Promise<AxiosResponse<IEducation>> => resume
 export const getEmploymentData = (): Promise<AxiosResponse<IEmployment>> => resumeTemplatesAxios.get('/employment.json');
 export const getHomeData = (): Promise<AxiosResponse<IHome>> => resumeTemplatesAxios.get('/home.json');
 export const getPrivateData = (): Promise<AxiosResponse<unknown>> => resumeTemplatesAxios.get('/private.json');
+
+
+export const getData = <T>(name: string): Promise<AxiosResponse<T>> => resumeTemplatesAxios.get(`/${name}.json`);
