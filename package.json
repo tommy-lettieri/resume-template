@@ -28,7 +28,7 @@
     "@storybook/react": "^6.3.2",
     "@types/lodash": "^4.14.171",
     "@types/moment": "^2.13.0",
-    "@z87/resume-template-cli": "file:../resume-template-cli",
+    "@z87/resume-template-cli": "https://github.com/tommy-lettieri/resume-template-cli/releases/download/v0.0.0-1/z87-resume-template-cli-0.0.0-1.tgz",
     "babel-loader": "^8.2.2",
     "express": "^4.17.1",
     "react": "^17.0.2",
