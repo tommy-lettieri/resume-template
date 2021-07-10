@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 import { IEducation, IEmployment, IHome } from '@z87/resume-template-cli';
 
 export const resumeTemplatesAxios = axios.create({
-    baseURL: '/resume-template-files',
+    baseURL: `${process.env.PUBLIC_URL}/resume-template-files`,
     timeout: 60000
 });
 
