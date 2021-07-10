@@ -14,16 +14,20 @@ export const Website = ({
 }: WebsiteProps) => {
     return <div style = {{
         backgroundColor: '#EEEEEE',
-        paddingBottom: '20px',
         ...style
     }}>
         <HomeAPIWrapper />
-        <div style={{marginLeft: '25%', marginRight: '25%'}}>
+        <div style={{
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            maxWidth: '1140px',
+            padding: '20px',
+        }} className="zrt-website">
             <GenericAPIWrapper DataContext={SkillsContext} name='skills' />
             <EmploymentAPIWrapper />
             <EducationAPIWrapper />
             <GenericAPIWrapper DataContext={AchievementsContext} name='achievements' />
             <GenericAPIWrapper DataContext={ProjectsContext} name='projects' />
         </div>
-    </div>
-}
+    </div>;
+};

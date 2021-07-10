@@ -47,6 +47,7 @@ export const GenericCard = ({
         <div style= {{
             display: 'flex',
             flexDirection: 'row',
+            flexFlow: 'wrap',
         }}>
             {data.logoURL && <OptionalLinkWrapper href={data.website}><div style={{height: '100%', display:'flex', alignItems: 'baseline', marginRight: '1em'}}><img style={{maxHeight: '100px', maxWidth: '250px', width: logoWidth }} src={data.logoURL} /> </div></OptionalLinkWrapper>}
             <div>
