@@ -50,7 +50,9 @@ export const GenericCard = ({
             flexFlow: 'wrap',
         }}>
             {data.logoURL && <OptionalLinkWrapper href={data.website}><div style={{height: '100%', display:'flex', alignItems: 'baseline', marginRight: '1em'}}><img style={{maxHeight: '100px', maxWidth: '250px', width: logoWidth }} src={data.logoURL} /> </div></OptionalLinkWrapper>}
-            <div>
+            <div
+                style={{ overflow: 'hidden', maxWidth: '100%'}}
+            >
                 <div style= {{
                     display: 'flex',
                     flexDirection: 'row',
@@ -58,7 +60,7 @@ export const GenericCard = ({
                     <OptionalLinkWrapper href={data.website}><h2 style={{margin: 0}}>{data.name}</h2></OptionalLinkWrapper>
                     {dateString && <div style={{marginTop: 'auto', marginLeft: '0.5em'}}>{dateString}</div>}
                 </div>
-                {data.bullets && <ul style={{listStyleType: 'none', margin: 0, padding: 0}}>{data.bullets.map(bullet => <ReactMarkdown remarkPlugins={[gfm]}>{bullet}</ReactMarkdown>)}</ul>}
+                {data.bullets && <ul style={{listStyleType: 'none', margin: 0, padding: 0}}>{data.bullets.map(bullet => <li key={bullet}><ReactMarkdown remarkPlugins={[gfm]} >{bullet}</ReactMarkdown></li>)}</ul>}
             </div>
         </div>
     </div>)
