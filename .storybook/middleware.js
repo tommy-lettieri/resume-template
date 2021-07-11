@@ -2,9 +2,11 @@ const express = require('express');
 const path = require('path');
 
 const FOLDER_NAME = 'resume-template-files';
+const ROOT_SERVE_FOLDER = express.static(path.join(__dirname, FOLDER_NAME));
+// const ROOT_SERVE_FOLDER = express.static(path.join('/home/luigi/workspace/resume/public', FOLDER_NAME));
 
 const expressMiddleware = router => {
-    router.use(`/${FOLDER_NAME}`, express.static(path.join(__dirname, FOLDER_NAME)));
+    router.use(`/${FOLDER_NAME}`, ROOT_SERVE_FOLDER);
 };
 
 module.exports = expressMiddleware;
