@@ -14,31 +14,31 @@ export interface GenericPageProps {
  * Primary UI component for user interaction
  */
 export const GenericPage = ({
-  dateFormat = 'MMMM yyyy',
-  dataArray,
-  style,
-  logoWidth,
-  pageName,
+    dateFormat = 'MMMM yyyy',
+    dataArray,
+    style,
+    logoWidth,
+    pageName,
 }: GenericPageProps) => {
-  if (_.isEmpty(dataArray)) {
-    return <div
-      className="zrt-generic-root"
-      style={{
-        ...style,
-      }}
-    ></div>
-  }
+    if (_.isEmpty(dataArray)) {
+        return <div
+            className="zrt-generic-root"
+            style={{
+                ...style,
+            }}
+        ></div>;
+    }
 
-  return (
-    <div
-      className="zrt-generic-root"
-      style={{
-        ...style,
-        marginBottom:'20px'
-      }}
-    >
-      <h1>{_.capitalize(pageName)}</h1>
-      {dataArray.map((data) => <GenericCard key={data.name} logoWidth={logoWidth} dateFormat={dateFormat} data={data} />)}
-    </div>
-  );
+    return (
+        <div
+            className="zrt-generic-root"
+            style={{
+                ...style,
+                marginBottom:'20px'
+            }}
+        >
+            <h1>{_.capitalize(pageName)}</h1>
+            {dataArray.map((data) => <GenericCard key={data.name} logoWidth={logoWidth} dateFormat={dateFormat} data={data} />)}
+        </div>
+    );
 };

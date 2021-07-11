@@ -48,5 +48,5 @@ export const SchoolCard = ({
             data={school}
             {...props}
         />
-    )
-}
+    );
+};

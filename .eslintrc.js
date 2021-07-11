@@ -26,7 +26,7 @@ module.exports = {
         },
         "ecmaVersion": 2018,
         "sourceType": "module",
-        "project": "tsconfig.json"
+        "project": "tsconfig.base.json"
     },
     "plugins": [
         "react",
@@ -53,7 +53,7 @@ module.exports = {
         "react/prop-types": [0, {}],
         "no-unused-vars": "off",
         "@typescript-eslint/no-unused-vars": "warn",
-        "no-console": ["warn"],
+        "no-console": ["warn", {"allow": ["warn", "error"]}],
         "prefer-const": "warn",
         "@typescript-eslint/no-unnecessary-condition": "warn",
         "no-extend-native": "off"

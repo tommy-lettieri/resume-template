@@ -1,15 +1,15 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Website } from '../components/Website' 
+import { Website } from '../components/Website'; 
 
 export default {
-  title: 'API Pages/Website',
-  component: Website,
-  argTypes: {},
-  parameters: {
-    layout: 'fullscreen',
-  },
+    title: 'API Pages/Website',
+    component: Website,
+    argTypes: {},
+    parameters: {
+        layout: 'fullscreen',
+    },
 } as ComponentMeta<typeof Website>;
 
 const Template: ComponentStory<typeof Website> = (args) => <Website {...args} />;

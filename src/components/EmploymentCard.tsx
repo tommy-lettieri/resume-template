@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 import { GenericCard } from './GenericCard';
 
 export interface Employment {
@@ -27,5 +26,5 @@ export const EmploymentCard = ({
             data={employment}
             {...props}
         />
-    )
-}
+    );
+};
