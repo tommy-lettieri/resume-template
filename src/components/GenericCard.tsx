@@ -21,6 +21,8 @@ interface GenericCardProps {
     logoWidth?: number;
 }
 
+const PUBLIC_URL = process.env.STORYBOOK_PUBLIC_FILE_URL ?? process.env.PUBLIC_URL ?? '';
+
 export const GenericCard = ({
     dateFormat = 'MMMM yyyy',
     data,
@@ -48,9 +50,15 @@ export const GenericCard = ({
                 flexDirection: 'row',
                 flexFlow: 'wrap',
             }}>
-                {data.logoURL && <OptionalLinkWrapper href={data.website}><div style={{height: '100%', display:'flex', alignItems: 'baseline', marginRight: '1em'}}><img alt='' style={{maxHeight: '100px', maxWidth: '250px', width: logoWidth }} src={data.logoURL} /> </div></OptionalLinkWrapper>}
+                {data.logoURL && <OptionalLinkWrapper href={data.website}><div style={{height: '100%', display:'flex', alignItems: 'baseline', marginRight: '1em'}}><img alt='' style={{maxHeight: '100px', maxWidth: '250px', width: logoWidth }} src={data.logoURL.startsWith('/') ? `${PUBLIC_URL}${data.logoURL}` : data.logoURL} /> </div></OptionalLinkWrapper>}
                 <div
-                    style={{ overflow: 'hidden', maxWidth: '100%'}}
+                    style={{
+                        overflow: 'hidden',
+                        maxWidth: '100%',
+                        flexShrink: 1,
+                        flexBasis: '180px',
+                        flexGrow: 1,
+                    }}
                 >
                     <div style= {{
                         display: 'flex',

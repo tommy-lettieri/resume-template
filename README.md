@@ -7,6 +7,29 @@ http://localhost:3005/iframe.html?id=api-pages-website--default-story&viewMode=s
 ## Caveats:
 Certain default styles asre different (for example the font serif instead of san serif)
 
+# Pointing to your data
+Instead of using template files for development you can use any `resume-template-files` with the STORYBOOK_RESUME_JSON_LOCATION env variable
+```bash
+STORYBOOK_RESUME_JSON_LOCATION='/home/luigi/workspace/resume/public' npm run storybook
+```
+
+# Public File Assets
+## Serving Assets
+```bash
+STORYBOOK_PUBLIC_FILE_URL='http://localhost:3002' npm run storybook
+```
+
+### File Server
+You can run a python simple server in a directory which you want to serve files from
+```bash
+python3 -m http.server 3002
+```
+
+# Startup example
+```bash
+STORYBOOK_PUBLIC_FILE_URL='http://localhost:3002' STORYBOOK_RESUME_JSON_LOCATION='/home/luigi/workspace/resume/public' npm run storybook
+```
+
 # Goals
 1. Create React contexts for fetching json files from public folder
 2. Create a React context and a gitignored private json file to obscure information like phone number if you don't want it on the internet
