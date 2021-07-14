@@ -4,6 +4,7 @@ import { GenericCard, GenericCardData } from './GenericCard';
 
 export interface GenericPageCustomizations {
     style?: React.CSSProperties;
+    backgroundColor?: string,
     dateFormat?: string;
     logoWidth?: number;
 }
@@ -26,25 +27,27 @@ export const GenericPage = <DataType extends GenericCardData = GenericCardData, 
     dateFormat = 'MMMM yyyy',
     dataArray,
     style,
+    backgroundColor = '#EEEEEE',
     logoWidth,
     pageName,
 }: GenericPageProps<DataType, AdditionalPropsType>) => {
+    const rootStyle = {
+        ...style,
+        marginBottom:'20px',
+        backgroundColor: backgroundColor,
+        padding: '20px',
+    };
     if (_.isEmpty(dataArray)) {
         return <div
             className="zrt-generic-root"
-            style={{
-                ...style,
-            }}
+            style={rootStyle}
         ></div>;
     }
 
     return (
         <div
             className="zrt-generic-root"
-            style={{
-                ...style,
-                marginBottom:'20px'
-            }}
+            style={rootStyle}
         >
             <h1>{_.capitalize(pageName)}</h1>
             {dataArray.map((data) => <GenericCard key={data.name} logoWidth={logoWidth} dateFormat={dateFormat} data={data} />)}

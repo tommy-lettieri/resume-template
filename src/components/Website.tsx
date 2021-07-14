@@ -13,7 +13,7 @@ export const Website = ({
     style
 }: WebsiteProps) => {
     return <div style = {{
-        backgroundColor: '#EEEEEE',
+        backgroundColor: '#DDDDDD',
         ...style
     }}>
         <HomeAPIWrapper />

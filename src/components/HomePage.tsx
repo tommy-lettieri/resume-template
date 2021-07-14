@@ -18,7 +18,7 @@ export const HomePage = ({
     name,
     style = { height: '100vh' },
     backgroundImageURL,
-    backgroundColor,
+    backgroundColor = '#CCCCCC',
     missionStatement,
 }: HomePageProps) => {
     const propStyles: React.CSSProperties = {};
