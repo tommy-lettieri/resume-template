@@ -3,6 +3,7 @@ import { HomeAPIWrapper } from './context-wrappers/HomePageContextWrapper';
 import { GenericAPIWrapper } from './context-wrappers/GenericPageContextWrapper';
 import { ProjectsContext, SkillsContext, AchievementsContext, EmploymentContext, EducationContext } from '../contexts';
 import { educationDataTransformer } from '../DataTypes';
+import { Footer } from './Footer';
 
 export interface WebsiteProps {
     style?: React.CSSProperties;
@@ -13,7 +14,7 @@ export const Website = ({
 }: WebsiteProps) => {
     return <div style = {{
         backgroundColor: '#DDDDDD',
-        ...style
+        ...style,
     }}>
         <HomeAPIWrapper />
         <div style={{
@@ -21,6 +22,8 @@ export const Website = ({
             marginRight: 'auto',
             maxWidth: '1140px',
             padding: '20px',
+            // To account for footer
+            paddingBottom: '70px',
         }} className="zrt-website">
             <GenericAPIWrapper DataContext={SkillsContext} name='skills' />
             <GenericAPIWrapper DataContext={EmploymentContext} name='employment' />
@@ -28,5 +31,6 @@ export const Website = ({
             <GenericAPIWrapper DataContext={AchievementsContext} name='achievements' />
             <GenericAPIWrapper DataContext={ProjectsContext} name='projects' />
         </div>
+        <Footer />
     </div>;
 };
