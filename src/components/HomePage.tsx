@@ -33,6 +33,7 @@ export const HomePage = ({
     return (
         <div
             className="zrt-home-root"
+            id="zrt-page-home"
             style={{
                 ...style,
                 ...propStyles,

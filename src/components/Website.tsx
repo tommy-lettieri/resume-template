@@ -4,6 +4,7 @@ import { GenericAPIWrapper } from './context-wrappers/GenericPageContextWrapper'
 import { ProjectsContext, SkillsContext, AchievementsContext, EmploymentContext, EducationContext } from '../contexts';
 import { educationDataTransformer } from '../DataTypes';
 import { Footer } from './Footer';
+import { Header } from './Header';
 
 export interface WebsiteProps {
     style?: React.CSSProperties;
@@ -16,6 +17,7 @@ export const Website = ({
         backgroundColor: '#DDDDDD',
         ...style,
     }}>
+        <Header />
         <HomeAPIWrapper />
         <div style={{
             marginLeft: 'auto',

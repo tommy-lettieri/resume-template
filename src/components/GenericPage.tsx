@@ -47,6 +47,7 @@ export const GenericPage = <DataType extends GenericCardData = GenericCardData, 
     return (
         <div
             className="zrt-generic-root"
+            id={`zrt-page-${pageName}`}
             style={rootStyle}
         >
             <h1>{_.capitalize(pageName)}</h1>
