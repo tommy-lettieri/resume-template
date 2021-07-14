@@ -27,7 +27,7 @@ export const GenericAPIProvider = <DataType extends GenericCardData = GenericCar
     children,
     dataArrayTransformer
 }: GenericProviderProps<DataType, AdditionalPropsType>) => {
-    const value = useState<DataContextType<DataType, AdditionalPropsType> | null | undefined>(undefined);
+    const value = useState<DataContextType<DataType, AdditionalPropsType> | null | undefined>(null);
     useEffect(() => {
         (async () => {
             try {
@@ -36,7 +36,7 @@ export const GenericAPIProvider = <DataType extends GenericCardData = GenericCar
                 value[1](result.data);
             } catch (e) {
                 console.error('getGenericData', e);
-                value[1](null);
+                value[1](undefined);
             }
         })();
     // This useEffect is specifically meant to run when the component is mounted, I do not want value in deps
@@ -55,11 +55,11 @@ export const GenericPageContextWrapper = <DataType extends GenericCardData = Gen
     return <DataContext.Consumer>
         {(stateTuple) => {
             if (stateTuple === null) {
-                return <p>Not Initialized</p>;
+                return <p>Application error: Not Initialized</p>;
             } else if (stateTuple[0] === null) {
-                return <p>THIS IS NULL</p>;
+                return <p>Loading {name} data...</p>;
             } else if (stateTuple[0] === undefined) {
-                return <p>THIS IS UNDEFINED</p>;
+                return <p>Could not fetch {name} data.</p>;
             }
             return <GenericPage 
                 pageName={name}
