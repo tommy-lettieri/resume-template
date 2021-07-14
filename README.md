@@ -5,29 +5,12 @@ This project is going to be an npm module that builds a resume website and resum
 http://localhost:3005/iframe.html?id=api-pages-website--default-story&viewMode=story&args=
 
 ## Caveats:
-Certain default styles asre different (for example the font serif instead of san serif)
+Certain default styles are different (for example the font serif instead of san serif)
 
 # Pointing to your data
-Instead of using template files for development you can use any `resume-template-files` with the STORYBOOK_RESUME_JSON_LOCATION env variable
+[middleware.js](.storybook/middleware.js) serves a proxy at `/resume`. You can modify where this points to by setting `PUBLIC_FILE_LOCATION` environment variable. By default it will point to `test-public` alongside the middleware file. This allows you to serve up custom assets you have defined as well as using your own resume data.
 ```bash
-STORYBOOK_RESUME_JSON_LOCATION='/home/luigi/workspace/resume/public' npm run storybook
-```
-
-# Public File Assets
-## Serving Assets
-```bash
-STORYBOOK_PUBLIC_FILE_URL='http://localhost:3002' npm run storybook
-```
-
-### File Server
-You can run a python simple server in a directory which you want to serve files from
-```bash
-python3 -m http.server 3002
-```
-
-# Startup example
-```bash
-STORYBOOK_PUBLIC_FILE_URL='http://localhost:3002' STORYBOOK_RESUME_JSON_LOCATION='/home/luigi/workspace/resume/public' npm run storybook
+PUBLIC_FILE_LOCATION='/home/luigi/workspace/resume/public' npm run storybook
 ```
 
 # Goals

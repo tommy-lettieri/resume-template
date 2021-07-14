@@ -1,11 +1,10 @@
 const express = require('express');
 const path = require('path');
 
-const FOLDER_NAME = 'resume-template-files';
-const ROOT_SERVE_FOLDER = express.static(path.join(process.env.STORYBOOK_RESUME_JSON_LOCATION ?? __dirname, FOLDER_NAME));
+const PUBLIC_FILE_LOCATION = process.env.PUBLIC_FILE_LOCATION ?? path.join(__dirname, 'test-public');
 
 const expressMiddleware = router => {
-    router.use(`/${FOLDER_NAME}`, ROOT_SERVE_FOLDER);
+    router.use('/resume', express.static(PUBLIC_FILE_LOCATION));
 };
 
 module.exports = expressMiddleware;

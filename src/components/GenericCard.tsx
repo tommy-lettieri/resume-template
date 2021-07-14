@@ -3,6 +3,7 @@ import moment from 'moment';
 import { OptionalLinkWrapper } from './OptionalLinkWrapper';
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
+import { PUBLIC_URL } from '../environment';
 
 
 export interface GenericCardData {
@@ -20,8 +21,6 @@ interface GenericCardProps {
     data: GenericCardData;
     logoWidth?: number;
 }
-
-const PUBLIC_URL = process.env.STORYBOOK_PUBLIC_FILE_URL ?? process.env.PUBLIC_URL ?? '';
 
 export const GenericCard = ({
     dateFormat = 'MMMM yyyy',
