@@ -2,24 +2,33 @@ import React from 'react';
 import _ from 'lodash';
 import { GenericCard, GenericCardData } from './GenericCard';
 
-export interface GenericPageProps {
-  style?: React.CSSProperties;
-  dateFormat?: string;
-  dataArray: GenericCardData[];
-  logoWidth?: number;
-  pageName: string;
+export interface GenericPageCustomizations {
+    style?: React.CSSProperties;
+    dateFormat?: string;
+    logoWidth?: number;
 }
+
+export interface GenericPageSpecifics {
+    pageName: string;
+}
+
+export type GenericPageCommons<DataType extends GenericCardData = GenericCardData, AdditionalPropsType = never> = GenericPageCustomizations & {
+  dataArray: DataType[];
+  additionalProps: AdditionalPropsType;
+}
+
+export type GenericPageProps<DataType extends GenericCardData = GenericCardData, AdditionalPropsType = never> = GenericPageCommons<DataType, AdditionalPropsType> & GenericPageSpecifics;
 
 /**
  * Primary UI component for user interaction
  */
-export const GenericPage = ({
+export const GenericPage = <DataType extends GenericCardData = GenericCardData, AdditionalPropsType = never>({
     dateFormat = 'MMMM yyyy',
     dataArray,
     style,
     logoWidth,
     pageName,
-}: GenericPageProps) => {
+}: GenericPageProps<DataType, AdditionalPropsType>) => {
     if (_.isEmpty(dataArray)) {
         return <div
             className="zrt-generic-root"

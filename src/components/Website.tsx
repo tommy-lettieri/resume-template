@@ -1,8 +1,9 @@
 import React from 'react';
-import { EducationAPIWrapper } from './context-wrappers/EducationContext';
+import _ from 'lodash';
 import { HomeAPIWrapper } from './context-wrappers/HomePageContextWrapper';
 import { GenericAPIWrapper } from './context-wrappers/GenericPageContextWrapper';
-import { ProjectsContext, SkillsContext, AchievementsContext, EmploymentContext } from '../contexts';
+import { ProjectsContext, SkillsContext, AchievementsContext, EmploymentContext, EducationContext } from '../contexts';
+import { educationDataTransformer } from '../DataTypes';
 
 export interface WebsiteProps {
     style?: React.CSSProperties;
@@ -24,7 +25,7 @@ export const Website = ({
         }} className="zrt-website">
             <GenericAPIWrapper DataContext={SkillsContext} name='skills' />
             <GenericAPIWrapper DataContext={EmploymentContext} name='employment' />
-            <EducationAPIWrapper />
+            <GenericAPIWrapper DataContext={EducationContext} name='education' dataArrayTransformer={educationDataTransformer} />
             <GenericAPIWrapper DataContext={AchievementsContext} name='achievements' />
             <GenericAPIWrapper DataContext={ProjectsContext} name='projects' />
         </div>
