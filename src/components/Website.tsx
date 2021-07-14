@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 import { HomeAPIWrapper } from './context-wrappers/HomePageContextWrapper';
 import { GenericAPIWrapper } from './context-wrappers/GenericPageContextWrapper';
 import { ProjectsContext, SkillsContext, AchievementsContext, EmploymentContext, EducationContext } from '../contexts';
