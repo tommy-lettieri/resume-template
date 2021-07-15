@@ -12,17 +12,25 @@ export const Header = () => {
         backgroundColor: '#333',
         color: '#FFF',
     }}>
-        <div style={{margin: 'auto'}}>
+        <style>{`
+            .zrt-nav-active {
+                text-decoration: underline;
+            }
+        `}</style>
+        <div style={{margin: 'auto', display: 'flex', flexWrap: 'wrap'}}>
             {['home', 'skills','employment','education','achievements','projects',].map(s =>
                 <Link
                     key={s}
-                    activeClass="active"
+                    activeClass="zrt-nav-active"
                     to={`zrt-page-${s}`}
                     spy={true}
                     smooth={true}
-                    offset={-50}
+                    offset={-100}
                     duration={500}
-                    style={{padding: '10px'}}
+                    style={{
+                        padding: '10px',
+                        cursor: 'pointer',
+                    }}
                 >
                     {_.capitalize(s)}
                 </Link>

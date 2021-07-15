@@ -10,7 +10,7 @@ export const OptionalLinkWrapper = ({
     children
 }: OptionalLinkWrapperProps) => {
     if (href) {
-        return <a href={href} style={{color: 'inherit', textDecoration: 'inherit'}} target='_blank' rel="noreferrer">{children}</a>;
+        return <a href={href} style={{color: 'inherit'}} target='_blank' rel="noreferrer">{children}</a>;
     } else {
         return <>{children}</>;
     }
