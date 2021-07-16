@@ -3,7 +3,7 @@ import { HomeAPIWrapper } from './context-wrappers/HomePageContextWrapper';
 import { ContactAPIWrapper } from './context-wrappers/ContactPageContextWrapper';
 import { GenericAPIWrapper } from './context-wrappers/GenericPageContextWrapper';
 import { ProjectsContext, SkillsContext, AchievementsContext, EmploymentContext, EducationContext } from '../contexts';
-import { educationDataTransformer } from '../DataTypes';
+import { educationDataTransformer, employmentDataTransformer } from '../DataTypes';
 import { Footer } from './Footer';
 import { Header } from './Header';
 
@@ -29,7 +29,7 @@ export const Website = ({
             paddingBottom: '70px',
         }} className="zrt-website">
             <GenericAPIWrapper DataContext={SkillsContext} name='skills' />
-            <GenericAPIWrapper DataContext={EmploymentContext} name='employment' />
+            <GenericAPIWrapper DataContext={EmploymentContext} name='employment' dataArrayTransformer={employmentDataTransformer} />
             <GenericAPIWrapper DataContext={EducationContext} name='education' dataArrayTransformer={educationDataTransformer} />
             <GenericAPIWrapper DataContext={AchievementsContext} name='achievements' />
             <GenericAPIWrapper DataContext={ProjectsContext} name='projects' />

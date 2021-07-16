@@ -5,6 +5,7 @@ export interface HomePageProps {
    * The name of the person this resume website belongs to
    */
   name: string;
+  title?: string;
   missionStatement?: string;
   style?: React.CSSProperties;
   backgroundImageURL?: string;
@@ -20,6 +21,7 @@ export const HomePage = ({
     backgroundImageURL,
     backgroundColor = '#CCCCCC',
     missionStatement,
+    title,
 }: HomePageProps) => {
     const propStyles: React.CSSProperties = {};
     if (backgroundImageURL) {
@@ -51,6 +53,7 @@ export const HomePage = ({
                 <h1 className="zrt-name">
                     {name}
                 </h1>
+                {title && <h3>{title}</h3>}
                 { missionStatement &&
         <h4 className="zrt-mission-statement">
             {missionStatement}

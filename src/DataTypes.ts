@@ -8,6 +8,10 @@ export interface School extends GenericCardData {
     awards?: string;
 }
 
+export interface Employment extends GenericCardData {
+    title?: string;
+}
+
 export type EducationPageProps = {
     gpaPrecision?: number;
 } | undefined;
@@ -30,5 +34,16 @@ export const educationDataTransformer: DataArrayTransformerType<School, Educatio
         school.bullets = school.bullets ?? [];
         awardsLine && school.bullets.unshift(awardsLine);
         school.major && school.bullets.unshift(school.major);                
+    });
+};
+
+export const employmentDataTransformer: DataArrayTransformerType<Employment> = (resp) => {
+    resp.dataArray.forEach(employment => {
+        if (!employment.title) {
+            return;
+        }
+
+        employment.bullets = employment.bullets ?? [];
+        employment.bullets.unshift(`### ${employment.title}`);
     });
 };
