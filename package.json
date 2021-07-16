@@ -1,6 +1,6 @@
 {
   "name": "@z87/resume-template",
-  "version": "0.0.0-6",
+  "version": "0.0.0-7",
   "description": "A react component library with resume related components.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
