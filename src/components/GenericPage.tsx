@@ -4,7 +4,7 @@ import { GenericCard, GenericCardData } from './GenericCard';
 
 export interface GenericPageCustomizations {
     style?: React.CSSProperties;
-    backgroundColor?: string,
+    backgroundColor?: string;
     dateFormat?: string;
     logoWidth?: number;
 }
