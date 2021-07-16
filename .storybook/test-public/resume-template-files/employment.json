@@ -1,6 +1,6 @@
 {
     "logoWidth": 100,
-    "employments": [{
+    "dataArray": [{
         "name": "Job 2",
         "bullets": [
           "Since this is markdown you can have a bunch of control here. **Bold** *Italics*",
@@ -13,8 +13,8 @@
         ],
         "startDate": "2021-07-09T15:26:26.661Z",
         "endDate": null,
-        "website": "http://localhost:3005/iframe.html?id=components-employment-card--all-data&viewMode=story",
-        "logoURL": "https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v286batch2-aew-company-logo-17_4.jpg?w=1200&h=1200&dpr=1&fit=clip&crop=default&fm=jpg&q=75&vib=3&con=3&usm=15&cs=srgb&bg=F4F4F3&ixlib=js-2.2.1&s=e93e1706e26a78ff1238b3ca63b10bdf"
+        "website": "https://tommy-lettieri.github.io/resume",
+        "logoURL": "/placeholder.png"
       }, {
         "name": "Job 1",
         "bullets": [
@@ -28,7 +28,7 @@
         ],
         "startDate": "2021-07-09T15:26:26.661Z",
         "endDate": null,
-        "website": "http://localhost:3005/iframe.html?id=components-employment-card--all-data&viewMode=story",
-        "logoURL": "https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v286batch2-aew-company-logo-17_4.jpg?w=1200&h=1200&dpr=1&fit=clip&crop=default&fm=jpg&q=75&vib=3&con=3&usm=15&cs=srgb&bg=F4F4F3&ixlib=js-2.2.1&s=e93e1706e26a78ff1238b3ca63b10bdf"
+        "website": "https://tommy-lettieri.github.io/resume",
+        "logoURL": "/placeholder.png"  
       }]
 }

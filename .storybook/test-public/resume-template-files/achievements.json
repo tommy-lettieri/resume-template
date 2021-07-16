@@ -2,9 +2,12 @@
     "logoWidth": 100,
     "dataArray": [
       {
-        "name": "I did it!",
-        "bullets": [],
-        "logoURL": "https://google.com"
+        "name": "Built a resume!",
+        "bullets": [
+          "**This** *is* markdown..."
+        ],
+        "logoURL": "/placeholder.png",
+        "website": "https://tommy-lettieri.github.io/resume"
       }
     ]
 }
