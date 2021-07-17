@@ -3,7 +3,7 @@ import moment from 'moment';
 import { OptionalLinkWrapper } from './OptionalLinkWrapper';
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
-import { PUBLIC_URL } from '../environment';
+import { resolveUrl } from '../utilities/ReactUtils';
 
 
 export interface GenericCardData {
@@ -49,7 +49,7 @@ export const GenericCard = ({
                 flexDirection: 'row',
                 flexFlow: 'wrap',
             }}>
-                {data.logoURL && <OptionalLinkWrapper href={data.website}><div style={{height: '100%', display:'flex', alignItems: 'baseline', marginRight: '1em'}}><img alt='' style={{maxHeight: '100%', maxWidth: '250px', width: logoWidth }} src={data.logoURL.startsWith('/') ? `${PUBLIC_URL}${data.logoURL}` : data.logoURL} /> </div></OptionalLinkWrapper>}
+                {data.logoURL && <OptionalLinkWrapper href={data.website}><div style={{height: '100%', display:'flex', alignItems: 'baseline', marginRight: '1em'}}><img alt='' style={{maxHeight: '100%', maxWidth: '250px', width: logoWidth }} src={resolveUrl(data.logoURL)} /> </div></OptionalLinkWrapper>}
                 <div
                     style={{
                         overflow: 'hidden',
