@@ -8,6 +8,7 @@ export interface HomePageProps {
     name: string;
     title?: string;
     missionStatement?: string;
+    professionalSummary?: string;
     style?: React.CSSProperties;
     backgroundImageURL?: string;
     backgroundColor?: string;
@@ -29,6 +30,7 @@ export const HomePage = ({
     missionStatement,
     title,
     links,
+    professionalSummary,
 }: HomePageProps) => {
     const propStyles: React.CSSProperties = {};
     if (backgroundImageURL) {
@@ -61,6 +63,7 @@ export const HomePage = ({
                     {name}
                 </h1>
                 {title && <h3>{title}</h3>}
+                {professionalSummary && <h4>{professionalSummary}</h4>}
                 {missionStatement &&
                     <h4 className="zrt-mission-statement">
                         {missionStatement}
