@@ -66,9 +66,11 @@ interface FooterProps {
     version?: string;
 }
 export const Footer = ({ buildTime, version: versionProp }: FooterProps) => {
-    // The reason for using an environment variable here is so that it can passed in from the build
-    // That way you can use git describe -- which makes it easier to differentiate versions on stage
-    const version = versionProp ?? process.env.REACT_APP_RESUME_VERSION ?? process.env.STORYBOOK_RESUME_VERSION ?? null;
+    // Use a prop if passed
+    // Otherwise check if the version was attached to the window
+    // If that's not the case check if it was part of the react build process (env variable)
+    // For testing check storybook env variable next
+    const version = versionProp ?? window.RESUME_VERSION ?? process.env.REACT_APP_RESUME_VERSION ?? process.env.STORYBOOK_RESUME_VERSION ?? null;
     return <div style ={{
         position: 'fixed',
         left: 0,
