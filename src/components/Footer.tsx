@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios, { AxiosResponse } from 'axios';
-import { PUBLIC_URL } from '../environment';
+import { PUBLIC_URL, RESUME_VERSION } from '../environment';
 import moment from 'moment';
 import _ from 'lodash';
 
@@ -10,6 +10,11 @@ export const axiosInstance = axios.create({
 });
 
 export const getBuildTime = (): Promise<AxiosResponse<string>> => axiosInstance.get('/buildTime.txt');
+export const getVersion = (): Promise<AxiosResponse<string>> => axiosInstance.get('/version.txt', {
+    params: {
+        cache_buster: new Date().getTime()
+    }
+});
 // Want to add a resume version... but this is a module
 // TODO Maybe I could use a version context...
 
@@ -51,6 +56,51 @@ const BuildTime = ({ buildTime, shortThreshold }: BuildTimeProps) => {
     }}>{message}</div>;
 };
 
+interface VersionCheckProps {
+    version: string;
+    interval?: number;
+}
+
+const VersionCheck = ({
+    // Default interval - 1 hour
+    interval = 3600000,
+    version
+}: VersionCheckProps) => {
+    const [ lastVersion, setLastVersion ] = useState<string>(version);
+    useEffect(() => {
+        let running = true;
+        let timeout: NodeJS.Timeout | null = null;
+        const intervalHandler = async () => {
+            if (!running) return;
+            const versionResp = await getVersion();
+            setLastVersion(versionResp.data);
+            // This isn't true because cleanup function sets running to false
+            // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+            if (!running) return;
+            timeout = setTimeout(intervalHandler, interval);
+        };
+        intervalHandler();
+
+        return () => {
+            running = false;
+            if (timeout) {
+                clearTimeout(timeout);
+                timeout = null;
+            }
+        };
+    }, [interval]);
+
+    if (lastVersion === version) {
+        return null;
+    }
+    const onUpdateClick = () => {
+        window.location.reload();
+    };
+    return <div title="Please refresh your browser" onClick={onUpdateClick} onKeyDown={onUpdateClick} role="button" tabIndex={-1} style={{cursor: 'pointer', textDecoration: 'underline'}}>
+        Update Available
+    </div>;
+};
+
 interface VersionProps {
     version: string | null;
 }
@@ -58,7 +108,10 @@ const Version = ({ version}: VersionProps) => {
     if (!version) return null;
     return <div style={{
         float: 'left'
-    }}>Version: {version}</div>;
+    }}>
+        Version: {version}
+        <VersionCheck version={version} />
+    </div>;
 };
 
 interface FooterProps {
@@ -70,7 +123,7 @@ export const Footer = ({ buildTime, version: versionProp }: FooterProps) => {
     // Otherwise check if the version was attached to the window
     // If that's not the case check if it was part of the react build process (env variable)
     // For testing check storybook env variable next
-    const version = versionProp ?? window.RESUME_VERSION ?? process.env.REACT_APP_RESUME_VERSION ?? process.env.STORYBOOK_RESUME_VERSION ?? null;
+    const version = versionProp ?? RESUME_VERSION;
     return <div style ={{
         position: 'fixed',
         left: 0,
