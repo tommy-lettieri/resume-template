@@ -4,7 +4,7 @@ import { ContactAPIWrapper } from './context-wrappers/ContactPageContextWrapper'
 import { GenericAPIWrapper } from './context-wrappers/GenericPageContextWrapper';
 import { ProjectsContext, SkillsContext, AchievementsContext, EmploymentContext, EducationContext } from '../contexts';
 import { educationDataTransformer, employmentDataTransformer } from '../DataTypes';
-import { Footer } from './Footer';
+import { FooterAPIWrapper } from './Footer';
 import { Header } from './Header';
 
 export interface WebsiteProps {
@@ -35,6 +35,6 @@ export const Website = ({
             <GenericAPIWrapper DataContext={ProjectsContext} name='projects' />
             <ContactAPIWrapper />
         </div>
-        <Footer />
+        <FooterAPIWrapper />
     </div>;
 };
