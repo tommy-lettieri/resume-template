@@ -18,7 +18,7 @@ export const Header = () => {
             }
         `}</style>
         <div style={{margin: 'auto', display: 'flex', flexWrap: 'wrap'}}>
-            {['home', 'skills','employment','education','achievements','projects', 'contact', ].map(s =>
+            {['home','employment','education', 'skills','achievements','projects', 'contact', ].map(s =>
                 <Link
                     key={s}
                     activeClass="zrt-nav-active"

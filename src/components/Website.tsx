@@ -28,9 +28,9 @@ export const Website = ({
             // To account for footer
             paddingBottom: '70px',
         }} className="zrt-website">
-            <GenericAPIWrapper DataContext={SkillsContext} name='skills' />
             <GenericAPIWrapper DataContext={EmploymentContext} name='employment' dataArrayTransformer={employmentDataTransformer} />
             <GenericAPIWrapper DataContext={EducationContext} name='education' dataArrayTransformer={educationDataTransformer} />
+            <GenericAPIWrapper DataContext={SkillsContext} name='skills' />
             <GenericAPIWrapper DataContext={AchievementsContext} name='achievements' />
             <GenericAPIWrapper DataContext={ProjectsContext} name='projects' />
             <ContactAPIWrapper />
