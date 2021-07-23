@@ -1,0 +1,37 @@
+{
+  "logoWidth": 100,
+  "dateFormat": "yyyy",
+  "dataArray": [
+    {
+      "name": "Resume",
+      "bullets": [
+        "### Problems\n1. I wanted to be able to make a personal website with all of the logic in a component library.\n2. I want that website to also generate a resume.\n3. Lastly I want that website to be deployed to github pages.",
+        "### Skills Acquired\n1. Github pages deployment with react\n2. Worked with modules that I created"
+      ],
+      "startDate": "7/1/2021",
+      "website": "https://github.com/tommy-lettieri/resume",
+      "logoURL": "/placeholder.png"
+    },
+    {
+      "name": "Resume Template",
+      "bullets": [
+        "### Problems\n1. I wanted a reusable component for generating personal website and resume.\n2. I wanted it to be able to be used without forking the repository (but instead just modifying the data)",
+        "### Issues Overcome\n1. The rollup typescript plugin did not want to export DTS files which made it difficult to consume the module in typescript\n2. ES Module Interop was not being respected initially",
+        "### Skill Acquired\n1. Learned how to build a react component library\n2. Learned to use rollup to package up said library\n3. Learned how to use storyboard to build and view components in isolation\n4. Furthered my understanding to use React Contexts"
+      ],
+      "startDate": "7/1/2021",
+      "website": "https://github.com/tommy-lettieri/resume",
+      "logoURL": "/placeholder.png"
+    },
+    {
+      "name": "Resume Template CLI (lib)",
+      "bullets": [
+        "### Problems\n1. I wanted a way for people to initialize certain settings when using the resume-template-library\n2. I wanted people to be able to validate that their JSON files were correct \n3. I wanted the automatic resume generation github action to be created as well",
+        "### Skill Acquired\n1. Leanred how to expose an npm module in the bin"
+      ],
+      "startDate": "7/1/2021",
+      "website": "https://github.com/tommy-lettieri/resume-template-cli",
+      "logoURL": "/placeholder.png"
+    }
+  ]
+}

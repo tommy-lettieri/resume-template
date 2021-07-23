@@ -1,0 +1,20 @@
+{
+    "logoWidth": 100,
+    "dataArray": [
+      {
+        "name": "Skills",
+        "bullets": [
+            "Things I'm good at.",
+            "Things I'm good at.",
+            "Things I'm good at.",
+            "Things I'm good at.",
+            "Things I'm good at.",
+            "Things I'm good at.",
+            "Things I'm good at.",
+            "Things I'm good at.",
+            "Things I'm good at."
+        ],
+        "logoURL": "/placeholder.png"
+      }
+    ]
+}
