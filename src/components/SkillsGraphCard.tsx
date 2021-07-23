@@ -2,7 +2,6 @@ import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 import { getColorString, HSL, MAX_COLOR_VALUE } from '../utilities/ColorUtils';
-import _ from 'lodash';
 
 interface InputData {
     [key: string]: number;
