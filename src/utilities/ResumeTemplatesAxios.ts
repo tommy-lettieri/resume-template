@@ -10,6 +10,7 @@ export const resumeTemplatesAxios = axios.create({
 export const getHomeData = (): Promise<AxiosResponse<IHome>> => resumeTemplatesAxios.get('/home.json');
 // TODO type response
 export const getContactData = (): Promise<AxiosResponse<any>> => resumeTemplatesAxios.get('/contact.json');
+export const getSkillsData = (): Promise<AxiosResponse<any>> => resumeTemplatesAxios.get('/skills.json');
 
 export const getEducationData = (): Promise<AxiosResponse<IEducation>> => resumeTemplatesAxios.get('/education.json');
 export const getEmploymentData = (): Promise<AxiosResponse<IEmployment>> => resumeTemplatesAxios.get('/employment.json');

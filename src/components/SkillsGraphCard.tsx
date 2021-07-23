@@ -120,14 +120,16 @@ export const inputDataSorters = {
 // Just for validation without losing inferred type
 inputDataSorters as { [key: string]: InputDataSorter };
 
-interface SkillsCardProps {
+export interface SkillsCardProps {
     hue?: number;
     saturation?: number;
     lightness?: number;
     name: string;
     width?: string;
     colorIterationTransformer?: ColorIterationTransformer;
+    colorIterationTransformerName?: string;
     inputDataSorter?: InputDataSorter;
+    inputDataSorterName?: string;
     data?: InputData;
 }
 export const SkillsGraphCard = ({
@@ -136,9 +138,11 @@ export const SkillsGraphCard = ({
     lightness = 0.25,
     width = '540px',
     name,
-    colorIterationTransformer = colorIterationTransformers.colorGradientIterationTransformer,
-    inputDataSorter = inputDataSorters.sort,
+    colorIterationTransformer,
+    inputDataSorter,
     data = testData,
+    inputDataSorterName,
+    colorIterationTransformerName,
 }: SkillsCardProps) => {
     return <div style={{
         backgroundColor: '#FFFFFF',
@@ -167,11 +171,11 @@ export const SkillsGraphCard = ({
             }}
             data={dataTransform({
                 name: 'Skill Level',
-                inputData: inputDataSorter?.(data),
+                inputData: inputDataSorter?.(data) ?? (inputDataSorters[inputDataSorterName as keyof typeof inputDataSorters] as InputDataSorter | undefined)?.(data) ?? data,
                 hue: hue,
                 saturation: saturation,
                 lightness: lightness,
-                colorIterationTransformer: colorIterationTransformer,
+                colorIterationTransformer: colorIterationTransformer ?? colorIterationTransformers[colorIterationTransformerName as keyof typeof colorIterationTransformers],
             })}
         />
     </div>;

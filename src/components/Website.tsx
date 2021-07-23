@@ -1,13 +1,12 @@
 import React from 'react';
 import { HomeAPIWrapper } from './context-wrappers/HomePageContextWrapper';
+import { SkillsAPIWrapper } from './context-wrappers/SkillsPageContextWrapper';
 import { ContactAPIWrapper } from './context-wrappers/ContactPageContextWrapper';
 import { GenericAPIWrapper } from './context-wrappers/GenericPageContextWrapper';
-import { ProjectsContext, SkillsContext, AchievementsContext, EmploymentContext, EducationContext } from '../contexts';
+import { ProjectsContext, AchievementsContext, EmploymentContext, EducationContext } from '../contexts';
 import { educationDataTransformer, employmentDataTransformer } from '../DataTypes';
 import { FooterAPIWrapper } from './Footer';
 import { Header } from './Header';
-import { SkillsGraphCard } from './SkillsGraphCard';
-import { SkillsPage } from './SkillsPage';
 
 export interface WebsiteProps {
     style?: React.CSSProperties;
@@ -32,8 +31,7 @@ export const Website = ({
         }} className="zrt-website">
             <GenericAPIWrapper DataContext={EmploymentContext} name='employment' dataArrayTransformer={employmentDataTransformer} />
             <GenericAPIWrapper DataContext={EducationContext} name='education' dataArrayTransformer={educationDataTransformer} />
-            <SkillsPage />
-            <GenericAPIWrapper DataContext={SkillsContext} name='skills' />
+            <SkillsAPIWrapper />
             <GenericAPIWrapper DataContext={AchievementsContext} name='achievements' />
             <GenericAPIWrapper DataContext={ProjectsContext} name='projects' />
             <ContactAPIWrapper />
