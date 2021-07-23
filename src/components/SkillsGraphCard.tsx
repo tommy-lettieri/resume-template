@@ -7,21 +7,6 @@ interface InputData {
     [key: string]: number;
 }
 
-const testData: InputData = {
-    'TypeScript': 5,
-    'JavaScript': 5,
-    'Java': 5,
-    'C#': 4,
-    'CSS': 4,
-    'Swift': 4,
-    'Python': 3,
-    'Visual Basic': 2,
-    'Lua': 2,
-    'Objective C': 2,
-    'C++': 2,
-    'C': 1,
-};
-
 interface InputDataSorter {
     (inputData: InputData): InputData;
 }
@@ -130,7 +115,7 @@ export interface SkillsCardProps {
     colorIterationTransformerName?: string;
     inputDataSorter?: InputDataSorter;
     inputDataSorterName?: string;
-    data?: InputData;
+    data: InputData;
 }
 export const SkillsGraphCard = ({
     hue = 200,
@@ -140,7 +125,7 @@ export const SkillsGraphCard = ({
     name,
     colorIterationTransformer,
     inputDataSorter,
-    data = testData,
+    data,
     inputDataSorterName,
     colorIterationTransformerName,
 }: SkillsCardProps) => {
