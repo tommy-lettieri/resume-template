@@ -54,3 +54,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           id: ${{ steps.create_release.outputs.id }}
+      - name: Build StoryBook
+        run: npm run build-storybook
+      - name: Deploy with gh-pages
+        run: |
+          git remote add github_upstream https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npm run deploy-storybook -- -u "github-actions-bot <support+actions@github.com>" -o "github_upstream"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
