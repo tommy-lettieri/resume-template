@@ -1,7 +1,10 @@
 # resume-template
 This project is going to be an npm module that builds a resume website and resume pdf. You give it the data and everything else is within the module.
 
-# See the website without storyboard (through storyboard)
+# Live demo
+https://tommy-lettieri.github.io/resume-template/
+
+# See the website without storybook (through storybook)
 http://localhost:3005/iframe.html?id=api-pages-website--default-story&viewMode=story&args=
 
 ## Caveats:
