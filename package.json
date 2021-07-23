@@ -6,8 +6,10 @@
   "module": "dist/index.esm.js",
   "dependencies": {
     "axios": "^0.21.1",
+    "chart.js": "^3.4.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
+    "react-chartjs-2": "^3.0.4",
     "react-markdown": "^6.0.2",
     "react-scroll": "^1.8.2",
     "remark-gfm": "^1.0.0"
