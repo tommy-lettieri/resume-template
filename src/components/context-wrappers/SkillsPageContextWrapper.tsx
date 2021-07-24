@@ -2,6 +2,7 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 import { SkillsPage, SkillsPageProps } from '../SkillsPage';
 import { getSkillsData } from '../../utilities/ResumeTemplatesAxios';
 import { UseStateType } from '../../utilities/ReactTypes';
+import _ from 'lodash';
 
 export const SkillsContext = createContext<UseStateType<SkillsPageProps | null | undefined> | null>(null);
 
@@ -35,7 +36,7 @@ export const SkillsAPIProvider: React.FC = ({
 export const useSkills = () => useContext(SkillsContext);
 
 
-export const SkillsPageContextWrapper = () => {
+export const SkillsPageContextWrapper = (propOverrides: Partial<SkillsPageProps>) => {
     return <SkillsContext.Consumer>
         {(stateTuple) => {
             if (stateTuple === null) {
@@ -48,13 +49,14 @@ export const SkillsPageContextWrapper = () => {
             
             return <SkillsPage 
                 {...stateTuple[0]}
+                {..._.omitBy(propOverrides, _.isUndefined)}
             />;
         }}
     </SkillsContext.Consumer>;
 };
 
-export const SkillsAPIWrapper = () => {
+export const SkillsAPIWrapper = (propOverrides: Partial<SkillsPageProps>) => {
     return <SkillsAPIProvider>
-        <SkillsPageContextWrapper />
+        <SkillsPageContextWrapper {...propOverrides} />
     </SkillsAPIProvider>;
 };

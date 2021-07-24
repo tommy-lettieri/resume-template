@@ -28,10 +28,10 @@ const dataTransform = ({ name, inputData, hue = 200, saturation = 0.5, lightness
     const result: Chart['data'] = {
         labels: [],
         datasets: [{
-            label: name,
+            // label: name,
             data: [],
             backgroundColor: [],
-            borderWidth: 1
+            borderWidth: 1,
         }]
     };
     Object.entries(inputData).forEach(([key, value], index, arr) => {
@@ -106,39 +106,54 @@ export const inputDataSorters = {
 inputDataSorters as { [key: string]: InputDataSorter };
 
 export interface SkillsCardProps {
+    name: string;
+    data: InputData;
     hue?: number;
     saturation?: number;
     lightness?: number;
-    name: string;
-    width?: string;
+    width?: string | number;
+    height?: string | number;
+    graphWidth?: number;
+    graphHeight?: number;
     colorIterationTransformer?: ColorIterationTransformer;
     colorIterationTransformerName?: string;
     inputDataSorter?: InputDataSorter;
     inputDataSorterName?: string;
-    data: InputData;
+    style?: React.CSSProperties;
+    fontSize?: number;
 }
 export const SkillsGraphCard = ({
+    name,
+    data,
     hue = 200,
     saturation = 0.5,
     lightness = 0.25,
-    width = '540px',
-    name,
+    width,
+    height,
     colorIterationTransformer,
     inputDataSorter,
-    data,
     inputDataSorterName,
     colorIterationTransformerName,
+    graphWidth,
+    graphHeight,
+    style,
+    fontSize,
 }: SkillsCardProps) => {
     return <div style={{
         backgroundColor: '#FFFFFF',
         maxWidth: '100%',
         width: width,
+        height: height,
         margin: '5px 0px',
         textAlign: 'center',
+        padding: '10px',
+        ...style
     }}
     >
-        <h2>{name}</h2>
+        <h2 style={{margin: '0px'}}>{name}</h2>
         <Bar
+            width={graphWidth}
+            height={graphHeight}
             options={{
                 plugins: {
                     legend: {
@@ -146,11 +161,23 @@ export const SkillsGraphCard = ({
                     },    
                 },
                 indexAxis: 'y',
-                scale: {
-                    ticks: {
-                        beginAtZero: true,
-                        min: 0,
-                        stepSize: 1,
+                scales: {
+                    y: {
+                        ticks: {
+                            color: 'black',
+                            font: {
+                                size: fontSize,
+                            },
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: 'black',
+                            font: {
+                                size: fontSize,
+                            },
+                            stepSize: 1,
+                        }
                     }
                 }
             }}
