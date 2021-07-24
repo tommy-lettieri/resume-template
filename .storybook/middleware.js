@@ -7,9 +7,11 @@ const express = require('express');
 const path = require('path');
 
 const PUBLIC_FILE_LOCATION = process.env.PUBLIC_FILE_LOCATION ?? path.join(__dirname, 'test-public');
+const STYLE_FILE_LOCATION = process.env.STYLE_FILE_LOCATION ?? path.join(__dirname, 'styles');
 
 const expressMiddleware = router => {
     router.use('/resume', express.static(PUBLIC_FILE_LOCATION));
+    router.use('/styles', express.static(STYLE_FILE_LOCATION));
 };
 
 module.exports = expressMiddleware;
