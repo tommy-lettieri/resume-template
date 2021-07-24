@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { SkillsGraphCard } from '../components/SkillsGraphCard';
 
 export default {
-    title: 'Components/Skills Card',
+    title: 'Components / Skills Card',
     component: SkillsGraphCard,
     argTypes: {
         name: { defaultValue: 'Default Name'},

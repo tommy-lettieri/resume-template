@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import { GenericCard, GenericCardData } from './GenericCard';
+import { GenericCard, GenericCardData } from '../GenericCard';
 
 export interface GenericPageCustomizations {
     style?: React.CSSProperties;

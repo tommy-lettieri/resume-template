@@ -1,12 +1,13 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { SkillsPage } from '../components/SkillsPage';
+import { SkillsPage } from '../../components/pages/SkillsPage';
 
 export default {
-    title: 'Individual Pages/Skills Page',
+    title: 'Pages / Skills',
     component: SkillsPage,
     argTypes: {
+        graphDataArray: { defaultValue: [] }
     },
     parameters: {
     },

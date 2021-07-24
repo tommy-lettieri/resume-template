@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import { SkillsPage, SkillsPageProps } from '../SkillsPage';
+import { SkillsPage, SkillsPageProps } from '../pages/SkillsPage';
 import { getSkillsData } from '../../utilities/ResumeTemplatesAxios';
 import { UseStateType } from '../../utilities/ReactTypes';
 import _ from 'lodash';

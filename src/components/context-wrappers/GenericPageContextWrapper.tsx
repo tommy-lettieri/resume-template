@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { GenericPage, GenericPageCommons } from '../GenericPage';
+import { GenericPage, GenericPageCommons } from '../pages/GenericPage';
 import { getData } from '../../utilities/ResumeTemplatesAxios';
 import { UseStateType } from '../../utilities/ReactTypes';
 import { GenericCardData } from '../GenericCard';

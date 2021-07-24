@@ -1,10 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
 import { Website } from '../components/Website'; 
 
 export default {
-    title: 'API Pages/Website',
+    title: 'Website',
     component: Website,
     argTypes: {},
     parameters: {

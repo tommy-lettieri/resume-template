@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import { ContactPage, ContactPageProps } from '../ContactPage';
+import { ContactPage, ContactPageProps } from '../pages/ContactPage';
 import { getContactData } from '../../utilities/ResumeTemplatesAxios';
 import { UseStateType } from '../../utilities/ReactTypes';
 

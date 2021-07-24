@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { GenericCard } from '../components/GenericCard';
 
 export default {
-    title: 'Components/Generic Card',
+    title: 'Components / Generic Card',
     component: GenericCard,
     argTypes: {
         data: {

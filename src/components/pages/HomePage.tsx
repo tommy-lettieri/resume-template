@@ -1,5 +1,5 @@
 import React from 'react';
-import { resolveUrl } from '../utilities/ReactUtils';
+import { resolveUrl } from '../../utilities/ReactUtils';
 
 export interface HomePageProps {
     /**

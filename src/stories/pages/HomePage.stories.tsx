@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { HomePage } from '../components/HomePage';
+import { HomePage } from '../../components/pages/HomePage';
 
 export default {
-    title: 'Individual Pages/Home',
+    title: 'Pages / Home',
     component: HomePage,
     argTypes: {
         backgroundColor: {

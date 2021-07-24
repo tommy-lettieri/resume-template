@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { GenericPageCommons } from '../components/GenericPage';
+import { GenericPageCommons } from '../components/pages/GenericPage';
 import { EducationPageProps, School, Employment } from '../DataTypes';
 import { UseStateType } from '../utilities/ReactTypes';
 

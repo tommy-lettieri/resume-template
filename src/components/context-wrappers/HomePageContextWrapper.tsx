@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import { HomePage, HomePageProps } from '../HomePage';
+import { HomePage, HomePageProps } from '../pages/HomePage';
 import { getHomeData } from '../../utilities/ResumeTemplatesAxios';
 import { UseStateType } from '../../utilities/ReactTypes';
 

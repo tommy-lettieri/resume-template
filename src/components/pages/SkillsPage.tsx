@@ -1,8 +1,8 @@
 import React from 'react';
-import { SkillsGraphCard, SkillsCardProps } from './SkillsGraphCard';
+import { SkillsGraphCard, SkillsCardProps } from '../SkillsGraphCard';
 
 export interface SkillsPageProps {
-    pageWideGraphOverrides: Partial<SkillsCardProps>;
+    pageWideGraphOverrides?: Partial<SkillsCardProps>;
     graphDataArray: SkillsCardProps[];
 }
 export const SkillsPage = ({

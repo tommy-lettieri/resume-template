@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { SkillsAPIWrapper } from '../../components/context-wrappers/SkillsPageContextWrapper';
 
 export default {
-    title: 'Wrapped Pages/Skills Page',
+    title: 'Context Wrappers / Skills Page',
     component: SkillsAPIWrapper,
     argTypes: {},
     parameters: {
