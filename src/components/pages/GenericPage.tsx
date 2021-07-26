@@ -27,31 +27,30 @@ export const GenericPage = <DataType extends GenericCardData = GenericCardData, 
     dateFormat = 'MMMM yyyy',
     dataArray,
     style,
-    backgroundColor = '#EEEEEE',
+    backgroundColor,
     logoWidth,
     pageName,
 }: GenericPageProps<DataType, AdditionalPropsType>) => {
+    const propStyles = _.omitBy({
+        backgroundColor: backgroundColor,
+    }, _.isUndefined);
+
     const rootStyle = {
         ...style,
-        marginBottom:'20px',
-        backgroundColor: backgroundColor,
-        padding: '20px',
+        ...propStyles,
     };
-    if (_.isEmpty(dataArray)) {
-        return <div
-            className="zrt-generic-root"
-            style={rootStyle}
-        ></div>;
-    }
 
     return (
         <div
-            className="zrt-generic-root"
+            className="zrt-page zrt-generic-root"
             id={`zrt-page-${pageName}`}
             style={rootStyle}
         >
             <h1>{_.capitalize(pageName)}</h1>
-            {dataArray.map((data) => <GenericCard key={data.name} logoWidth={logoWidth} dateFormat={dateFormat} data={data} />)}
+            {dataArray.length > 0 ?
+                dataArray.map((data) => <GenericCard key={data.name} logoWidth={logoWidth} dateFormat={dateFormat} data={data} />) :
+                <h4>No data to display</h4>
+            }
         </div>
     );
 };

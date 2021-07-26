@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 
 export interface ContactPageProps {
     iframeWidth?: number;
@@ -13,16 +14,21 @@ export const ContactPage = ({
     iframeHeight = 1000,
     iframeSrc,
     style,
-    backgroundColor = '#EEEEEE',
+    backgroundColor,
 }: ContactPageProps) => {
+    const propStyles = _.omitBy({
+        backgroundColor: backgroundColor,
+    }, _.isUndefined);
+
+    const rootStyle = {
+        ...style,
+        ...propStyles,
+    };
+
     return <div
         id="zrt-page-contact"
-        style={{
-            ...style,
-            marginBottom:'20px',
-            backgroundColor: backgroundColor,
-            padding: '20px',    
-        }}
+        className="zrt-page zrt-page-contact"
+        style={rootStyle}
     >
         <h1>Contact me</h1>
         {/* <a href={src}>Form Link</a> */}

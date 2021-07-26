@@ -1,3 +1,5 @@
+import './index.css';
+
 export * from './components/pages/GenericPage';
 export * from './components/pages/HomePage';
 export * from './components/pages/SkillsPage';
