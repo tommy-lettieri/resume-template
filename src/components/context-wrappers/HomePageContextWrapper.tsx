@@ -35,7 +35,7 @@ export const HomeAPIProvider: React.FC = ({
 export const useHome = () => useContext(HomeContext);
 
 
-export const HomePageContextWrapper = () => {
+export const HomePageContextWrapper = (propOverrides: Partial<HomePageProps>) => {
     return <HomeContext.Consumer>
         {(stateTuple) => {
             if (stateTuple === null) {
@@ -48,13 +48,14 @@ export const HomePageContextWrapper = () => {
             
             return <HomePage 
                 {...stateTuple[0]}
+                {...propOverrides}
             />;
         }}
     </HomeContext.Consumer>;
 };
 
-export const HomeAPIWrapper = () => {
+export const HomeAPIWrapper = (propOverrides: Partial<HomePageProps>) => {
     return <HomeAPIProvider>
-        <HomePageContextWrapper />
+        <HomePageContextWrapper {...propOverrides} />
     </HomeAPIProvider>;
 };
