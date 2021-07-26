@@ -1,5 +1,6 @@
 import React from 'react';
 import { resolveUrl } from '../../utilities/ReactUtils';
+import './HomePage.css';
 
 export interface HomePageProps {
     /**
@@ -24,9 +25,9 @@ export interface HomePageProps {
  */
 export const HomePage = ({
     name,
-    style = { height: '100vh' },
+    style,
     backgroundImageURL,
-    backgroundColor = '#CCCCCC',
+    backgroundColor,
     missionStatement,
     title,
     links,
@@ -43,39 +44,24 @@ export const HomePage = ({
 
     return (
         <div
-            className="zrt-home-root"
+            className="zrt-page-home"
             id="zrt-page-home"
             style={{
                 ...style,
                 ...propStyles,
+                // This style remains here to avoid overwriting
                 display: 'flex',
             }}
         >
-            <div
-                className="zrt-home-content"
-                style={{
-                    margin: 'auto',
-                    textAlign: 'center',
-                    maxWidth: '75%'
-                }}
-            >
-                <h1 className="zrt-name">
-                    {name}
-                </h1>
+            <div className="zrt-home-content">
+                <h1 className="zrt-home-name">{name}</h1>
                 {title && <h3>{title}</h3>}
-                {professionalSummary && <h4>{professionalSummary}</h4>}
+                {professionalSummary &&
+                <h4 className="zrt-home-mission-statement">{professionalSummary}</h4>}
                 {missionStatement &&
-                    <h4 className="zrt-mission-statement">
-                        {missionStatement}
-                    </h4>
-                }
-                {links && <div style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    flexWrap: 'wrap',
-                    justifyContent: 'center'
-                }}>
-                    {links.map(link => <a key={link.name} title={link.name} href={link.url} target="_blank" rel="noreferrer"><img src={resolveUrl(link.logoURL)} alt={link.name} style={{ maxHeight: '32px', padding: '10px' }} /></a>)}
+                <h4 className="zrt-home-mission-statement">{missionStatement}</h4>}
+                {links && <div className="zrt-home-links-container">
+                    {links.map(link => <a key={link.name} className="zrt-home-link" title={link.name} href={link.url} target="_blank" rel="noreferrer"><img src={resolveUrl(link.logoURL)} alt={link.name} /></a>)}
                 </div>}
             </div>
         </div>
