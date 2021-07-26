@@ -1,23 +1,11 @@
 import React from 'react';
 import { Link } from 'react-scroll';
 import _ from 'lodash';
+import './Header.css';
 
 export const Header = () => {
-    return <div style ={{
-        position: 'fixed',
-        left: 0,
-        right: 0,
-        top: 0,
-        padding: '20px',
-        backgroundColor: '#333',
-        color: '#FFF',
-    }}>
-        <style>{`
-            .zrt-nav-active {
-                text-decoration: underline;
-            }
-        `}</style>
-        <div style={{margin: 'auto', display: 'flex', flexWrap: 'wrap'}}>
+    return <div className="zrt-header">
+        <div className="zrt-header-content">
             {['home','employment','education', 'skills','achievements','projects', 'contact', ].map(s =>
                 <Link
                     key={s}
@@ -27,10 +15,6 @@ export const Header = () => {
                     smooth={true}
                     offset={-100}
                     duration={500}
-                    style={{
-                        padding: '10px',
-                        cursor: 'pointer',
-                    }}
                 >
                     {_.capitalize(s)}
                 </Link>
