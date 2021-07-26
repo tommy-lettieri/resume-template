@@ -2,6 +2,7 @@ import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 import { getColorString, HSL, MAX_COLOR_VALUE } from '../utilities/ColorUtils';
+import './SkillGraphCard.css';
 
 interface InputData {
     [key: string]: number;
@@ -139,18 +140,12 @@ export const SkillsGraphCard = ({
     style,
     fontSize,
 }: SkillsCardProps) => {
-    return <div className='zrt-skill-chart' style={{
-        backgroundColor: '#FFFFFF',
-        maxWidth: '100%',
+    return <div className='zrt-skill-graph-card' style={{
+        ...style,
         width: width,
         height: height,
-        margin: '5px 0px',
-        textAlign: 'center',
-        padding: '10px',
-        ...style
-    }}
-    >
-        <h2 style={{margin: '0px'}}>{name}</h2>
+    }}>
+        <h2>{name}</h2>
         <Bar
             width={graphWidth}
             height={graphHeight}

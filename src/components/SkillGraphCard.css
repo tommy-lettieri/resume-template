@@ -1,0 +1,11 @@
+.zrt-skill-graph-card {
+    background-color: #FFFFFF;
+    max-width: 100%;
+    margin: 5px 0px;
+    text-align: center;
+    padding: 10px;
+}
+
+.zrt-skill-graph-card > h2 {
+    margin: 0px;
+}

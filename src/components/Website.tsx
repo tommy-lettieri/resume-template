@@ -7,7 +7,7 @@ import { ProjectsContext, AchievementsContext, EmploymentContext, EducationConte
 import { educationDataTransformer, employmentDataTransformer } from '../DataTypes';
 import { FooterAPIWrapper } from './Footer';
 import { Header } from './Header';
-import './website.css';
+import './Website.css';
 
 export interface WebsiteProps {
     style?: React.CSSProperties;
