@@ -5,9 +5,10 @@ import { UseStateType } from '../../utilities/ReactTypes';
 import { GenericCardData } from '../GenericCard';
 
 type DataContextType<DataType extends GenericCardData = GenericCardData, AdditionalPropsType = never> = GenericPageCommons<DataType, AdditionalPropsType>;
-interface GenericConsumerProps<DataType extends GenericCardData = GenericCardData, AdditionalPropsType = never> {
+export interface GenericConsumerProps<DataType extends GenericCardData = GenericCardData, AdditionalPropsType = never> {
     name: string;
     DataContext: React.Context<UseStateType<DataContextType<DataType, AdditionalPropsType> | null | undefined> | null>;
+    propOverrides?: Partial<GenericPageCommons<DataType, AdditionalPropsType>>;
 }
 
 export type DataArrayTransformerType<DataType extends GenericCardData = GenericCardData, AdditionalPropsType = never> = (resp: GenericPageCommons<DataType, AdditionalPropsType>) => void;
@@ -50,7 +51,8 @@ export const useGeneric = <DataType extends GenericCardData = GenericCardData, A
 
 export const GenericPageContextWrapper = <DataType extends GenericCardData = GenericCardData, AdditionalPropsType = never>({
     DataContext,
-    name
+    name,
+    ...propOverrides
 }: GenericConsumerProps<DataType, AdditionalPropsType>) => {
     return <DataContext.Consumer>
         {(stateTuple) => {
@@ -64,6 +66,7 @@ export const GenericPageContextWrapper = <DataType extends GenericCardData = Gen
             return <GenericPage 
                 pageName={name}
                 {...stateTuple[0]}
+                {...propOverrides}
             />;
         }}
     </DataContext.Consumer>;
@@ -72,9 +75,10 @@ export const GenericPageContextWrapper = <DataType extends GenericCardData = Gen
 export const GenericAPIWrapper = <DataType extends GenericCardData = GenericCardData, AdditionalPropsType = never>(props: GenericAPIWrapperProps<DataType, AdditionalPropsType>) => {
     const {
         dataArrayTransformer,
+        propOverrides,
         ...contextProps
     } = props;
     return <GenericAPIProvider {...props}>
-        <GenericPageContextWrapper  {...contextProps}/>
+        <GenericPageContextWrapper  {...contextProps} {...propOverrides}/>
     </GenericAPIProvider>;
 };
