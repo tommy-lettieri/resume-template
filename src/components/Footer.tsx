@@ -3,6 +3,7 @@ import axios, { AxiosResponse } from 'axios';
 import { PUBLIC_URL, RESUME_VERSION } from '../environment';
 import moment from 'moment';
 import _ from 'lodash';
+import './Footer.css';
 
 export const axiosInstance = axios.create({
     baseURL: PUBLIC_URL,
@@ -51,9 +52,7 @@ const BuildTime = ({ buildTime, shortThreshold }: BuildTimeProps) => {
     } else {
         message = `Last updated: ${moment(buildTime).format(format)}`;
     }
-    return <div style={{
-        float: 'right'
-    }}>{message}</div>;
+    return <div className="footer-build-time">{message}</div>;
 };
 
 interface VersionCheckProps {
@@ -96,21 +95,20 @@ const VersionCheck = ({
     const onUpdateClick = () => {
         window.location.reload();
     };
-    return <div title="Please refresh your browser" onClick={onUpdateClick} onKeyDown={onUpdateClick} role="button" tabIndex={-1} style={{cursor: 'pointer', textDecoration: 'underline'}}>
+    return <div className="footer-version-update-available" title="Please refresh your browser" onClick={onUpdateClick} onKeyDown={onUpdateClick} role="button" tabIndex={-1}>
         Update Available
     </div>;
 };
 
 interface VersionProps {
     version: string | null;
+    useCacheCheck?: boolean;
 }
-const Version = ({ version}: VersionProps) => {
+const Version = ({ version, useCacheCheck = true }: VersionProps) => {
     if (!version) return null;
-    return <div style={{
-        float: 'left'
-    }}>
+    return <div className="footer-version">
         Version: {version}
-        <VersionCheck version={version} />
+        {useCacheCheck && <VersionCheck version={version} />}
     </div>;
 };
 
@@ -124,15 +122,7 @@ export const Footer = ({ buildTime, version: versionProp }: FooterProps) => {
     // If that's not the case check if it was part of the react build process (env variable)
     // For testing check storybook env variable next
     const version = versionProp ?? RESUME_VERSION;
-    return <div style ={{
-        position: 'fixed',
-        left: 0,
-        right: 0,
-        bottom: 0,
-        padding: '20px',
-        backgroundColor: '#333',
-        color: '#FFF',
-    }}>
+    return <div className="footer">
         <Version version={version} />
         <BuildTime buildTime={buildTime} shortThreshold={version ? 500 : 375 } />
     </div>;

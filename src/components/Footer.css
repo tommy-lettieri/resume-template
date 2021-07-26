@@ -1,0 +1,22 @@
+.footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    background-color: #333;
+    color: #FFF;
+}
+
+.footer-build-time {
+    float: right;
+}
+
+.footer-version {
+    float: left;
+}
+
+.footer-version-update-available {
+    cursor: pointer;
+    text-decoration: underline;
+}
