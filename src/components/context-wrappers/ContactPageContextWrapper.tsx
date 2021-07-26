@@ -35,7 +35,7 @@ export const ContactPageContextWrapper = (propOverrides: Partial<ContactPageProp
             if (stateTuple === null) {
                 return <p>Application error: Not Initialized</p>;
             } else if (stateTuple[0] === null) {
-                return <p>Loading home data...</p>;
+                return <p>Loading contact data...</p>;
             } else if (stateTuple[0] === undefined) {
                 return <p>Could not fetch contact data.</p>;
             }

@@ -42,9 +42,9 @@ export const SkillsPageContextWrapper = (propOverrides: Partial<SkillsPageProps>
             if (stateTuple === null) {
                 return <p>Application error: Not Initialized</p>;
             } else if (stateTuple[0] === null) {
-                return <p>Loading home data...</p>;
+                return <p>Loading skill data...</p>;
             } else if (stateTuple[0] === undefined) {
-                return <p>Could not fetch home data.</p>;
+                return <p>Could not fetch skill data.</p>;
             }
             
             return <SkillsPage 
