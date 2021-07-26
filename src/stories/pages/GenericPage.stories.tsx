@@ -7,7 +7,7 @@ export default {
     title: 'Pages / Generic',
     component: GenericPage,
     argTypes: {
-        Generics: {
+        dataArray: {
             defaultValue: [{
                 startDate: new Date(),
                 endDate: null,
@@ -18,6 +18,9 @@ export default {
                 endDate: new Date(),
                 name: 'Generic 1',
             }]
+        },
+        pageName: {
+            defaultValue: 'Default Page Name'
         }
     },
     parameters: {
@@ -26,21 +29,6 @@ export default {
 } as ComponentMeta<typeof GenericPage>;
 
 const Template: ComponentStory<typeof GenericPage> = (args) => <GenericPage {...args} />;
-
-export const TomTom = Template.bind({});
-TomTom.args = {
-    Generics: [{
-        startDate: new Date(),
-        endDate: null,
-        name: 'Generic 2',
-        bullets: ['c', 'd']
-    }, {
-        startDate: new Date(),
-        endDate: new Date(),
-        name: 'Generic 1',
-    }]
-};
-
 
 export const DefaultStory = Template.bind({});
 DefaultStory.args = {};
