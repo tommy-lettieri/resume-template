@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { SkillsGraphCard } from '../components/SkillsGraphCard';
+import { SkillsGraphCard } from '../';
 
 export default {
     title: 'Components / Skills Card',

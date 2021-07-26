@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { SkillsPage } from '../../components/pages/SkillsPage';
+import { SkillsPage } from '../../';
 
 export default {
     title: 'Pages / Skills',

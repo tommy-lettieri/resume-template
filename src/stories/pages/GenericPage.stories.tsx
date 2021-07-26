@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { GenericPage } from '../../components/pages/GenericPage';
+import { GenericPage } from '../../';
 
 export default {
     title: 'Pages / Generic',

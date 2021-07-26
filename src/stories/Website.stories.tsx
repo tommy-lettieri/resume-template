@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Website } from '../components/Website'; 
+import { Website } from '../'; 
 
 export default {
     title: 'Website',
