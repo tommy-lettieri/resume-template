@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import _ from 'lodash';
 import { GenericPage, GenericPageCommons } from '../pages/GenericPage';
 import { getData } from '../../utilities/ResumeTemplatesAxios';
 import { UseStateType } from '../../utilities/ReactTypes';
@@ -66,7 +67,7 @@ export const GenericPageContextWrapper = <DataType extends GenericCardData = Gen
             return <GenericPage 
                 pageName={name}
                 {...stateTuple[0]}
-                {...propOverrides}
+                {..._.omitBy(propOverrides, _.isUndefined)}
             />;
         }}
     </DataContext.Consumer>;

@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
+import _ from 'lodash';
 import { ContactPage, ContactPageProps } from '../pages/ContactPage';
 import { getContactData } from '../../utilities/ResumeTemplatesAxios';
 import { UseStateType } from '../../utilities/ReactTypes';
@@ -28,7 +29,7 @@ export const ContactAPIProvider: React.FC = ({
 export const useContact = () => useContext(ContactContext);
 
 
-export const ContactPageContextWrapper = () => {
+export const ContactPageContextWrapper = (propOverrides: Partial<ContactPageProps>) => {
     return <ContactContext.Consumer>
         {(stateTuple) => {
             if (stateTuple === null) {
@@ -41,13 +42,14 @@ export const ContactPageContextWrapper = () => {
             
             return <ContactPage 
                 {...stateTuple[0]}
+                {..._.omitBy(propOverrides, _.isUndefined)}
             />;
         }}
     </ContactContext.Consumer>;
 };
 
-export const ContactAPIWrapper = () => {
+export const ContactAPIWrapper = (propOverrides: Partial<ContactPageProps>) => {
     return <ContactAPIProvider>
-        <ContactPageContextWrapper />
+        <ContactPageContextWrapper {...propOverrides} />
     </ContactAPIProvider>;
 };
