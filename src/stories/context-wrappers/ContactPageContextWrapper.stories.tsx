@@ -1,18 +1,18 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ContactAPIProvider } from '../../components/context-wrappers/ContactPageContextWrapper';
+import { ContactAPIWrapper } from '../../components/context-wrappers/ContactPageContextWrapper';
 
 export default {
     title: 'Context Wrappers / Contact Page',
-    component: ContactAPIProvider,
+    component: ContactAPIWrapper,
     argTypes: {},
     parameters: {
         layout: 'fullscreen',
     },
-} as ComponentMeta<typeof ContactAPIProvider>;
+} as ComponentMeta<typeof ContactAPIWrapper>;
 
-const Template: ComponentStory<typeof ContactAPIProvider> = (args) => <ContactAPIProvider {...args} />;
+const Template: ComponentStory<typeof ContactAPIWrapper> = (args) => <ContactAPIWrapper {...args} />;
 
 export const DefaultStory = Template.bind({});
 DefaultStory.args = {};

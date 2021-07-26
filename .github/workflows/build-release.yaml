@@ -57,6 +57,8 @@ jobs:
           id: ${{ steps.create_release.outputs.id }}
       - name: Build StoryBook
         run: npm run build-storybook
+        env:
+          STORYBOOK_RESUME_VERSION: "VER_NUMBER"
       - name: Deploy with gh-pages
         run: |
           git remote add github_upstream https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
