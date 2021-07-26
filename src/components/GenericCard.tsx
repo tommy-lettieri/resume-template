@@ -4,7 +4,7 @@ import { OptionalLinkWrapper } from './OptionalLinkWrapper';
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
 import { resolveUrl } from '../utilities/ReactUtils';
-
+import './GenericCard.css';
 
 export interface GenericCardData {
     startDate?: string | Date;
@@ -38,35 +38,15 @@ export const GenericCard = ({
     }
 
     return (
-        <div style={{
-            padding: '20px',
-            marginBottom: '20px',
-            backgroundColor: '#FFFFFF',
-            ...style,
-        }}>
-            <div style= {{
-                display: 'flex',
-                flexDirection: 'row',
-                flexFlow: 'wrap',
-            }}>
-                {data.logoURL && <OptionalLinkWrapper href={data.website}><div style={{height: '100%', display:'flex', alignItems: 'baseline', marginRight: '1em'}}><img alt='' style={{maxHeight: '100%', maxWidth: '250px', width: logoWidth }} src={resolveUrl(data.logoURL)} /> </div></OptionalLinkWrapper>}
-                <div
-                    style={{
-                        overflow: 'hidden',
-                        maxWidth: '100%',
-                        flexShrink: 1,
-                        flexBasis: '180px',
-                        flexGrow: 1,
-                    }}
-                >
-                    <div style= {{
-                        display: 'flex',
-                        flexDirection: 'row',
-                    }}>
-                        <OptionalLinkWrapper href={data.website}><h2 style={{margin: 0}}>{data.name}</h2></OptionalLinkWrapper>
-                        {dateString && <div style={{marginTop: 'auto', marginLeft: '0.5em'}}>{dateString}</div>}
+        <div className="zrt-generic-card" style={style}>
+            <div className="zrt-generic-card-content">
+                {data.logoURL && <OptionalLinkWrapper href={data.website}><div className="zrt-generic-card-img-container"><img alt='' style={{width: logoWidth}} src={resolveUrl(data.logoURL)} /> </div></OptionalLinkWrapper>}
+                <div className="zrt-generic-card-content">
+                    <div className="zrt-flex-row">
+                        <OptionalLinkWrapper href={data.website}><h2 className="zrt-generic-card-name">{data.name}</h2></OptionalLinkWrapper>
+                        {dateString && <div className="zrt-generic-card-date">{dateString}</div>}
                     </div>
-                    {data.bullets && <ul style={{listStyleType: 'none', margin: 0, padding: 0}}>{data.bullets.map(bullet => <li key={bullet}><ReactMarkdown remarkPlugins={[gfm]} >{bullet}</ReactMarkdown></li>)}</ul>}
+                    {data.bullets && <ul className="zrt-generic-card-bullet">{data.bullets.map(bullet => <li key={bullet}><ReactMarkdown remarkPlugins={[gfm]} >{bullet}</ReactMarkdown></li>)}</ul>}
                 </div>
             </div>
         </div>);

@@ -3,3 +3,8 @@
     padding: 20px;
     background-color: #EEEEEE;
 }
+
+.zrt-flex-row {
+    display: flex;
+    flex-direction: row;
+}

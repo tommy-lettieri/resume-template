@@ -1,0 +1,48 @@
+.zrt-generic-card {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #FFFFFF;
+}
+
+.zrt-generic-card-content {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+}
+
+.zrt-generic-card-img-container {
+    margin-right: 1em;
+    
+    /* Could use these styles to center the image */
+    /* height: 100%;
+    display: flex;
+    align-items: center; */
+}
+
+.zrt-generic-card-img-container > img {
+    max-height: '100%';
+    max-width: '250px';
+}
+
+.zrt-generic-card-content {
+    overflow: hidden;
+    max-width: 100%;
+    flex-shrink: 1;
+    flex-basis: 180px;
+    flex-grow: 1;
+}
+
+.zrt-generic-card-name {
+    margin: 0;
+}
+
+.zrt-generic-card-date {
+    margin-top: auto;
+    margin-left: 0.5em;
+}
+
+.zrt-generic-card-bullet {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
