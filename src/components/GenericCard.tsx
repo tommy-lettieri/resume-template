@@ -42,11 +42,13 @@ export const GenericCard = ({
             <div className="zrt-generic-card-content">
                 {data.logoURL && <OptionalLinkWrapper href={data.website}><div className="zrt-generic-card-img-container"><img alt='' style={{width: logoWidth}} src={resolveUrl(data.logoURL)} /> </div></OptionalLinkWrapper>}
                 <div className="zrt-generic-card-content">
-                    <div className="zrt-flex-row">
-                        <OptionalLinkWrapper href={data.website}><h2 className="zrt-generic-card-name">{data.name}</h2></OptionalLinkWrapper>
-                        {dateString && <div className="zrt-generic-card-date">{dateString}</div>}
+                    <div>
+                        <div className="zrt-flex-row">
+                            <OptionalLinkWrapper href={data.website}><h2 className="zrt-generic-card-name">{data.name}</h2></OptionalLinkWrapper>
+                            {dateString && <div className="zrt-generic-card-date">{dateString}</div>}
+                        </div>
+                        {data.bullets && <ul className="zrt-generic-card-bullet">{data.bullets.map(bullet => <li key={bullet}><ReactMarkdown remarkPlugins={[gfm]} >{bullet}</ReactMarkdown></li>)}</ul>}
                     </div>
-                    {data.bullets && <ul className="zrt-generic-card-bullet">{data.bullets.map(bullet => <li key={bullet}><ReactMarkdown remarkPlugins={[gfm]} >{bullet}</ReactMarkdown></li>)}</ul>}
                 </div>
             </div>
         </div>);
