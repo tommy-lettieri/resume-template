@@ -34,9 +34,7 @@ export const ContactPage = ({
         {/* <a href={src}>Form Link</a> */}
         <iframe
             title="contact"
-            style={{
-                maxWidth: '100%',
-            }}
+            className="zrt-contact-iframe"
             src={iframeSrc}
             width={iframeWidth}
             height={iframeHeight}
