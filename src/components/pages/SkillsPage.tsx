@@ -1,5 +1,6 @@
 import React from 'react';
 import { SkillsGraphCard, SkillsCardProps } from '../SkillsGraphCard';
+import './SkillsPage.css';
 
 export interface SkillsPageProps {
     pageWideGraphOverrides?: Partial<SkillsCardProps>;
@@ -11,7 +12,7 @@ export const SkillsPage = ({
 }: SkillsPageProps) => {
     return <div id='zrt-page-skills' className="zrt-page zrt-page-skills">
         <h1>Skills</h1>
-        <div className='zrt-skill-content' style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', marginBottom: '20px', }}>
+        <div className='zrt-skill-content'>
             {graphDataArray.map(graphData => <SkillsGraphCard key={graphData.name} {...graphData} {...pageWideGraphOverrides} />)}
         </div>
     </div>;

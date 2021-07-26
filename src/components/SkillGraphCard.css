@@ -1,7 +1,8 @@
 .zrt-skill-graph-card {
     background-color: #FFFFFF;
     max-width: 100%;
-    margin: 5px 0px;
+    margin: 0px;
+    margin-bottom: 20px;
     text-align: center;
     padding: 10px;
 }
