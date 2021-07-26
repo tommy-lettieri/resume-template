@@ -1,20 +1,33 @@
 {
-    "logoWidth": 100,
-    "dataArray": [
-      {
-        "name": "Skills",
-        "bullets": [
-            "Things I'm good at.",
-            "Things I'm good at.",
-            "Things I'm good at.",
-            "Things I'm good at.",
-            "Things I'm good at.",
-            "Things I'm good at.",
-            "Things I'm good at.",
-            "Things I'm good at.",
-            "Things I'm good at."
-        ],
-        "logoURL": "/placeholder.png"
+  "pageWideGraphOverrides": {
+    "graphHeight": 450,
+    "graphWidth": 500,
+    "saturation": 0.25,
+    "lightness": 0.25,
+    "hue": 200,
+    "inputDataSorterName": "sort",
+    "colorIterationTransformerName": "colorGradientIterationTransformer"
+  },
+  "graphDataArray": [
+    {
+      "name": "Video Games",
+      "data": {
+        "Zelda": 5,
+        "Metroid": 4,
+        "Mario": 5,
+        "InFamous": 4,
+        "UnCharted": 4,
+        "Call of Duty": 1,
+        "Halo": 2
       }
-    ]
+    },
+    {
+      "name": "House Chores",
+      "data": {
+        "Unloading Dishwasher": 0,
+        "Cleaning up after dogs": 5,
+        "Taking out garbage": 4,
+        "Cleaning Pool Filters": 3
+      }
+    }]
 }

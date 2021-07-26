@@ -1,4 +1,19 @@
 {
-    "name": "Your Name",
-    "missionStatement": "Default Mission Statement"
+    "name": "name: Your Name",
+    "title": "title: Guru of Software",
+    "professionalSummary": "professionalSummary: Wrote some code over the years.",
+    "missionStatement": "missionStatement: Write open source code!",
+    "links": [{
+        "name": "My Resume",
+        "logoURL": "/placeholder.png",
+        "url": "https://tommy-lettieri.github.io/resume/"
+    }, {
+        "name": "My Resume Stage",
+        "logoURL": "/placeholder.png",
+        "url": "https://tommy-lettieri.github.io/resume-stage/"
+    }, {
+        "name": "My Resume Source",
+        "logoURL": "/placeholder.png",
+        "url": "https://github.com/tommy-lettieri/resume"
+    }]
 }
