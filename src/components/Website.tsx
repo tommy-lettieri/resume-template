@@ -7,6 +7,7 @@ import { ProjectsContext, AchievementsContext, EmploymentContext, EducationConte
 import { educationDataTransformer, employmentDataTransformer } from '../DataTypes';
 import { FooterAPIWrapper } from './Footer';
 import { Header } from './Header';
+import './website.css';
 
 export interface WebsiteProps {
     style?: React.CSSProperties;
@@ -15,20 +16,11 @@ export interface WebsiteProps {
 export const Website = ({
     style
 }: WebsiteProps) => {
-    return <div style = {{
-        backgroundColor: '#DDDDDD',
-        ...style,
-    }}>
+    return <div className='zrt-website' style = {style}>
         <Header />
         <HomeAPIWrapper />
         <div style={{
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            maxWidth: '1140px',
-            padding: '20px',
-            // To account for footer
-            paddingBottom: '70px',
-        }} className="zrt-website">
+        }} className="zrt-website-content">
             <GenericAPIWrapper DataContext={EmploymentContext} name='employment' dataArrayTransformer={employmentDataTransformer} />
             <GenericAPIWrapper DataContext={EducationContext} name='education' dataArrayTransformer={educationDataTransformer} />
             <SkillsAPIWrapper />

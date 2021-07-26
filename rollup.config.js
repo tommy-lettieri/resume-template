@@ -9,6 +9,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 import packageJSON from './package.json';
 import json from '@rollup/plugin-json';
+import postcss from 'rollup-plugin-postcss'
 
 export default [
     {
@@ -33,6 +34,10 @@ export default [
             json(),
             // This solves esinterop issues (as of right now lodash and moment were giving issues with default import)
             commonjs(),
+            postcss({
+                plugins: [],
+                minimize: true,
+            }),
             typescript({
                 // This should be default, however this fixed an issue in which declaration files were not generated (as well as source maps)
                 // https://github.com/rollup/plugins/issues/61#issuecomment-845838534

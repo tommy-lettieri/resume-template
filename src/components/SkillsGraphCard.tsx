@@ -139,7 +139,7 @@ export const SkillsGraphCard = ({
     style,
     fontSize,
 }: SkillsCardProps) => {
-    return <div style={{
+    return <div className='zrt-skill-chart' style={{
         backgroundColor: '#FFFFFF',
         maxWidth: '100%',
         width: width,
