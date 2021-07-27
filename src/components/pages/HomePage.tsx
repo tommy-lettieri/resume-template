@@ -55,11 +55,11 @@ export const HomePage = ({
         >
             <div className="zrt-home-content">
                 <h1 className="zrt-home-name">{name}</h1>
-                {title && <h3>{title}</h3>}
+                {title && <h2>{title}</h2>}
                 {professionalSummary &&
-                <h4 className="zrt-home-mission-statement">{professionalSummary}</h4>}
+                <h3 className="zrt-home-mission-statement">{professionalSummary}</h3>}
                 {missionStatement &&
-                <h4 className="zrt-home-mission-statement">{missionStatement}</h4>}
+                <h3 className="zrt-home-mission-statement">{missionStatement}</h3>}
                 {links && <div className="zrt-home-links-container">
                     {links.map(link => <a key={link.name} className="zrt-home-link" title={link.name} href={link.url} target="_blank" rel="noreferrer"><img src={resolveUrl(link.logoURL)} alt={link.name} /></a>)}
                 </div>}
