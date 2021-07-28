@@ -18,6 +18,8 @@ export interface HomePageProps {
         logoURL: string;
         url: string;
     }[];
+    dummyHeader?: React.ReactNode;
+    dummyFooter?: React.ReactNode;
 }
 
 /**
@@ -32,6 +34,8 @@ export const HomePage = ({
     title,
     links,
     professionalSummary,
+    dummyHeader,
+    dummyFooter,
 }: HomePageProps) => {
     const propStyles: React.CSSProperties = {};
     if (backgroundImageURL) {
@@ -51,8 +55,10 @@ export const HomePage = ({
                 ...propStyles,
                 // This style remains here to avoid overwriting
                 display: 'flex',
+                flexDirection: 'column',
             }}
         >
+            {dummyHeader && <div className="zrt-dummy-header-container zrt-dummy">{dummyHeader}</div>}
             <div className="zrt-home-content">
                 <h1 className="zrt-home-name">{name}</h1>
                 {title && <h2>{title}</h2>}
@@ -64,6 +70,7 @@ export const HomePage = ({
                     {links.map(link => <a key={link.name} className="zrt-home-link" title={link.name} href={link.url} target="_blank" rel="noreferrer"><img src={resolveUrl(link.logoURL)} alt={link.name} /></a>)}
                 </div>}
             </div>
+            {dummyFooter && <div className="zrt-dummy-header-container zrt-dummy">{dummyFooter}</div>}
         </div>
     );
 };

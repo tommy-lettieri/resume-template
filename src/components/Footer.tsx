@@ -52,7 +52,7 @@ const BuildTime = ({ buildTime, shortThreshold }: BuildTimeProps) => {
     } else {
         message = `Last updated: ${moment(buildTime).format(format)}`;
     }
-    return <div className="footer-build-time">{message}</div>;
+    return <div className="zrt-footer-build-time">{message}</div>;
 };
 
 interface VersionCheckProps {
@@ -95,7 +95,7 @@ const VersionCheck = ({
     const onUpdateClick = () => {
         window.location.reload();
     };
-    return <div className="footer-version-update-available" title="Please refresh your browser" onClick={onUpdateClick} onKeyDown={onUpdateClick} role="button" tabIndex={-1}>
+    return <div className="zrt-footer-version-update-available" title="Please refresh your browser" onClick={onUpdateClick} onKeyDown={onUpdateClick} role="button" tabIndex={-1}>
         Update Available
     </div>;
 };
@@ -106,7 +106,7 @@ interface VersionProps {
 }
 const Version = ({ version, useCacheCheck = true }: VersionProps) => {
     if (!version) return null;
-    return <div className="footer-version">
+    return <div className="zrt-footer-version">
         Version: {version}
         {useCacheCheck && <VersionCheck version={version} />}
     </div>;
@@ -115,20 +115,22 @@ const Version = ({ version, useCacheCheck = true }: VersionProps) => {
 interface FooterProps {
     buildTime: string | null | undefined;
     version?: string;
+    dummy?: boolean;
+    useCacheCheck?: boolean;
 }
-export const Footer = ({ buildTime, version: versionProp }: FooterProps) => {
+export const Footer = ({ buildTime, version: versionProp, dummy=false, useCacheCheck=true }: FooterProps) => {
     // Use a prop if passed
     // Otherwise check if the version was attached to the window
     // If that's not the case check if it was part of the react build process (env variable)
     // For testing check storybook env variable next
     const version = versionProp ?? RESUME_VERSION;
-    return <div className="footer">
-        <Version version={version} />
+    return <div className={`zrt-footer ${dummy ? '' : 'zrt-footer-fixed'}`}>
+        <Version version={version} useCacheCheck={useCacheCheck} />
         <BuildTime buildTime={buildTime} shortThreshold={version ? 500 : 375 } />
     </div>;
 };
 
-export const FooterAPIWrapper = () => {
+export const FooterAPIWrapper = (propOverrides?: Partial<FooterProps>) => {
     const [buildTime, setBuildTime] = useState<string | null | undefined>(null);
     useEffect(() => {
         (async () => {
@@ -147,5 +149,5 @@ export const FooterAPIWrapper = () => {
         })();
     }, []);
 
-    return <Footer buildTime={buildTime} />;
+    return <Footer buildTime={buildTime} {...propOverrides} />;
 };

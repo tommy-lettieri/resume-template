@@ -1,6 +1,6 @@
 .zrt-page-home {
     background-color: #CCCCCC;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .zrt-home-content {
@@ -19,4 +19,8 @@
 .zrt-home-link > img {
     max-height: 32px;
     padding: 10px;
+}
+
+.zrt-dummy {
+    width: 100%;
 }

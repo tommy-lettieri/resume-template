@@ -1,11 +1,14 @@
 .zrt-header {
+    padding: 20px;
+    background-color: #333;
+    color: #FFF;
+}
+
+.zrt-header-fixed {
     position: fixed;
     left: 0;
     right: 0;
     top: 0;
-    padding: 20px;
-    background-color: #333;
-    color: #FFF;
 }
 
 .zrt-nav-active {

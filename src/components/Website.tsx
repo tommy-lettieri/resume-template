@@ -16,7 +16,7 @@ export const Website = ({
 }: WebsiteProps) => {
     return <div className='zrt-website' style = {style}>
         <Header />
-        <HomeAPIWrapper />
+        <HomeAPIWrapper dummyHeader={<Header  dummy={true} />} dummyFooter={<FooterAPIWrapper dummy={true}/>}/>
         <div className="zrt-website-content">
             <EmploymentAPIWrapper />
             <EducationAPIWrapper />

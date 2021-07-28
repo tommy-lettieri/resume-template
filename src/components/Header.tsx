@@ -3,8 +3,11 @@ import { Link } from 'react-scroll';
 import _ from 'lodash';
 import './Header.css';
 
-export const Header = () => {
-    return <div className="zrt-header">
+interface HeaderProps {
+    dummy?: boolean;
+}
+export const Header = ({ dummy = false }: HeaderProps) => {
+    return <div className={`zrt-header ${dummy ? '' : 'zrt-header-fixed'}`}>
         <div className="zrt-header-content">
             {['home','employment','education', 'skills','achievements','projects', 'contact', ].map(s =>
                 <Link
